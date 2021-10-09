@@ -367,6 +367,10 @@ public class viewPanel extends javax.swing.JPanel {
         ubercars.getUberCars().set(tblCarReg.getSelectedRow(), uberObjNew);
         
         insertToTable();
+        
+//        Date currDate = new Date();
+        
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void tblCarRegMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCarRegMouseClicked

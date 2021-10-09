@@ -150,7 +150,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handsling code here:
         searchPanel searchObj = new searchPanel(uberCars);
         jSplitPaneMain.setRightComponent(searchObj);
     }//GEN-LAST:event_btnSearchActionPerformed
