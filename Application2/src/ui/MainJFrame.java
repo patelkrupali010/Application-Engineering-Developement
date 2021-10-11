@@ -45,24 +45,37 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanelActions.setBackground(new java.awt.Color(193, 233, 242));
+
+        btnCreate.setBackground(new java.awt.Color(193, 233, 242));
+        btnCreate.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnCreate.setForeground(java.awt.Color.darkGray);
         btnCreate.setText("Create");
+        btnCreate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCreate.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCreate.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
 
+        btnSearch.setBackground(new java.awt.Color(193, 233, 242));
+        btnSearch.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnSearch.setForeground(java.awt.Color.darkGray);
         btnSearch.setText("Search");
+        btnSearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
             }
         });
 
+        btnView.setBackground(new java.awt.Color(193, 233, 242));
+        btnView.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnView.setForeground(java.awt.Color.darkGray);
         btnView.setText("View");
+        btnView.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
@@ -73,13 +86,13 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanelActions.setLayout(jPanelActionsLayout);
         jPanelActionsLayout.setHorizontalGroup(
             jPanelActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelActionsLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelActionsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch)
-                    .addComponent(btnView))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCreate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jPanelActionsLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCreate, btnSearch, btnView});
@@ -87,35 +100,38 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanelActionsLayout.setVerticalGroup(
             jPanelActionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelActionsLayout.createSequentialGroup()
-                .addGap(184, 184, 184)
+                .addGap(182, 182, 182)
                 .addComponent(btnCreate)
-                .addGap(53, 53, 53)
-                .addComponent(btnSearch)
-                .addGap(54, 54, 54)
-                .addComponent(btnView)
-                .addContainerGap(365, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(428, Short.MAX_VALUE))
         );
 
         jPanelActionsLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreate, btnSearch, btnView});
 
         jSplitPaneMain.setLeftComponent(jPanelActions);
 
-        lblAppName.setFont(new java.awt.Font("Arial Black", 3, 24)); // NOI18N
+        jPanelWorkspace.setBackground(new java.awt.Color(193, 233, 242));
+
+        lblAppName.setFont(new java.awt.Font("Calibri", 3, 24)); // NOI18N
+        lblAppName.setForeground(new java.awt.Color(255, 0, 102));
         lblAppName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAppName.setText("My UBER APP");
+        lblAppName.setText("MY UBER APP");
 
         javax.swing.GroupLayout jPanelWorkspaceLayout = new javax.swing.GroupLayout(jPanelWorkspace);
         jPanelWorkspace.setLayout(jPanelWorkspaceLayout);
         jPanelWorkspaceLayout.setHorizontalGroup(
             jPanelWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblAppName, javax.swing.GroupLayout.DEFAULT_SIZE, 985, Short.MAX_VALUE)
+            .addComponent(lblAppName, javax.swing.GroupLayout.DEFAULT_SIZE, 929, Short.MAX_VALUE)
         );
         jPanelWorkspaceLayout.setVerticalGroup(
             jPanelWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelWorkspaceLayout.createSequentialGroup()
                 .addGap(154, 154, 154)
                 .addComponent(lblAppName, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(513, Short.MAX_VALUE))
+                .addContainerGap(618, Short.MAX_VALUE))
         );
 
         jSplitPaneMain.setRightComponent(jPanelWorkspace);

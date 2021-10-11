@@ -6,12 +6,22 @@
 package ui;
 
 import com.toedter.calendar.JTextFieldDateEditor;
+import java.io.BufferedReader;
+import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 import model.Uber;
 import model.UberList;
 
@@ -73,61 +83,67 @@ public class createPanel extends javax.swing.JPanel {
         txtCity = new javax.swing.JTextField();
         jDateCertiExp = new com.toedter.calendar.JDateChooser();
         btnSubmit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnFileUpload = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        lblHeading.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        setBackground(new java.awt.Color(193, 233, 242));
+
+        lblHeading.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHeading.setText("Uber Registration Details");
         lblHeading.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblIsAvail.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblIsAvail.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblIsAvail.setText("Is Available");
         lblIsAvail.setToolTipText("");
         lblIsAvail.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblIsAvail.setName(""); // NOI18N
 
-        lblManufctNme.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblManufctNme.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblManufctNme.setText("Car Manufacturer Name");
         lblManufctNme.setToolTipText("");
         lblManufctNme.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblManufctNme.setName(""); // NOI18N
 
-        lblCarName.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblCarName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblCarName.setText("Car Name");
         lblCarName.setToolTipText("");
         lblCarName.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCarName.setName(""); // NOI18N
 
-        lblNumOfSeat.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblNumOfSeat.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblNumOfSeat.setText("Number of seats in a car");
         lblNumOfSeat.setToolTipText("");
         lblNumOfSeat.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblNumOfSeat.setName(""); // NOI18N
 
-        lblMnfYr.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblMnfYr.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblMnfYr.setText("Car Manufacturer Year");
         lblMnfYr.setToolTipText("");
         lblMnfYr.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblMnfYr.setName(""); // NOI18N
 
-        lblSerialNo.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblSerialNo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblSerialNo.setText("Car Serial Number");
         lblSerialNo.setToolTipText("");
         lblSerialNo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblSerialNo.setName(""); // NOI18N
 
-        lblModelNo.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblModelNo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblModelNo.setText("Car model Number");
         lblModelNo.setToolTipText("");
         lblModelNo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblModelNo.setName(""); // NOI18N
 
-        lblCity.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblCity.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblCity.setText("City");
         lblCity.setToolTipText("");
         lblCity.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCity.setName(""); // NOI18N
 
-        lblCertiExp.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblCertiExp.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblCertiExp.setText("Car Maintenance Expiry Certificate");
         lblCertiExp.setToolTipText("");
         lblCertiExp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -186,14 +202,33 @@ public class createPanel extends javax.swing.JPanel {
         txtCity.setToolTipText("");
         txtCity.setName(""); // NOI18N
 
-        btnSubmit.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        btnSubmit.setBackground(new java.awt.Color(204, 204, 204));
+        btnSubmit.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnSubmit.setText("Submit");
-        btnSubmit.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSubmit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setText("Upload Configuration file");
+
+        btnFileUpload.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnFileUpload.setText("Upload File");
+        btnFileUpload.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnFileUpload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFileUploadActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel2.setText("Enter details for manual registration below:");
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setText("Upload Configuration file for automated registration:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -202,20 +237,26 @@ public class createPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(106, 106, 106)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblCarName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblIsAvail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblManufctNme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblMnfYr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblNumOfSeat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblModelNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblCertiExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblSerialNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(378, 378, 378)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblCarName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblIsAvail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblManufctNme, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                                        .addComponent(lblMnfYr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblNumOfSeat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblModelNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblSerialNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(lblCertiExp, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(342, 342, 342)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(comboBoxIsAvail, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtCarNme, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
@@ -225,45 +266,47 @@ public class createPanel extends javax.swing.JPanel {
                                     .addComponent(txtCity)
                                     .addComponent(jYearMnfYr, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(comboBoxNoOfSeat, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jDateCertiExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(511, 511, 511)
-                                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 267, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jDateCertiExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnFileUpload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 267, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(461, 461, 461)
+                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblCarName, lblCertiExp, lblCity, lblIsAvail, lblManufctNme, lblMnfYr, lblModelNo, lblNumOfSeat, lblSerialNo});
-
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxIsAvail, txtCarMnfName, txtCarNme, txtCity, txtModelNum, txtSerialNum});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblCarName, lblCertiExp, lblCity, lblIsAvail, lblManufctNme, lblMnfYr, lblModelNo, lblNumOfSeat, lblSerialNo});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCarName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCarName)
                     .addComponent(txtCarNme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblIsAvail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblIsAvail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBoxIsAvail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblManufctNme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblManufctNme, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCarMnfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblMnfYr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblMnfYr, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNumOfSeat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblNumOfSeat)
                             .addComponent(comboBoxNoOfSeat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -271,25 +314,31 @@ public class createPanel extends javax.swing.JPanel {
                             .addComponent(txtSerialNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblModelNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblModelNo)
                             .addComponent(txtModelNum))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jYearMnfYr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCertiExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jDateCertiExp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jDateCertiExp, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(lblCertiExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFileUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addGap(146, 146, 146))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblCarName, lblCertiExp, lblCity, lblIsAvail, lblManufctNme, lblMnfYr, lblModelNo, lblNumOfSeat, lblSerialNo});
-
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxIsAvail, comboBoxNoOfSeat, txtCarMnfName, txtCarNme, txtCity, txtModelNum, txtSerialNum});
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblCarName, lblCity, lblIsAvail, lblManufctNme, lblMnfYr, lblModelNo, lblNumOfSeat, lblSerialNo});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -305,6 +354,42 @@ public class createPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSerialNumActionPerformed
 
+    private void createDetailsfromFile(String[] rows) throws Exception{
+        for(Uber uber: uberObj.getUberCars()){
+            if(uber.getSerialNum() == rows[5].trim()){
+                JOptionPane.showMessageDialog(this, "Serial No. "+rows[5].trim()+" already exists."  );
+                return;
+            }
+        }
+        Uber uber = uberObj.addNewCars();
+        uber.setCarName(rows[1].trim());
+        if(rows[1].equals("Yes")){
+            uber.setIsAvailable(true);
+        }
+        else{
+            uber.setIsAvailable(false);
+        }
+        
+        uber.setCarManufacturer(rows[2].trim());
+        uber.setCarManufacturingYear(Integer.parseInt(rows[3].trim()));
+        uber.setNumOfSeats(Integer.parseInt(rows[4].trim()));
+        uber.setSerialNum(rows[5].trim());
+        uber.setModelNum(rows[6].trim());
+        uber.setCity(rows[7].trim());
+        uber.setMaintenanceExpiryCerti(new Date(rows[8].trim()));
+        
+        Date currDate = new Date();
+        for(Uber uber1: uberObj.getUberCars()){
+            if((uber1.getMaintenanceExpiryCerti().before(currDate))){  
+                    uber1.setIsExpired("Expired");
+            }
+            else if((currDate.before(uber1.getMaintenanceExpiryCerti()) ) ){
+                    uber1.setIsExpired("Not Expired");
+            }
+        }
+        
+    }
+    
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         try{
@@ -336,18 +421,24 @@ public class createPanel extends javax.swing.JPanel {
             //field name: SerialNum; data type: String; checks: null check, empty check and on key press event actions for more validations.            
             String SerialNum = txtSerialNum.getText();
             if( (SerialNum.isEmpty() || SerialNum == null)){
-                JOptionPane.showMessageDialog(txtSerialNum, "Error: Car serial number is null or empty");
-                return;
+                JOptionPane.showMessageDialog(txtSerialNum, "Error: Car serial number is null or empty.");
+                return; 
             }
-            
+            else{
+                for(Uber uber: uberObj.getUberCars()){
+                    if(txtSerialNum.getText().equals(uber.getSerialNum())){
+                        JOptionPane.showMessageDialog(txtSerialNum, "Error: Car serial number is not unique. Duplicate record found.");
+                        return;               
+            }
+            } 
+            }
             //field name: Car model number; data type: String; checks: null check, empty check and on key press event actions for more validations.            
             String ModelNum = txtModelNum.getText();
             if( (ModelNum.isEmpty() || ModelNum == null)){
                 JOptionPane.showMessageDialog(txtModelNum, "Error: Car model number is null or empty");
                 return;
-
             }
-            
+                
             //field name: City; data type: String; checks: null check, empty check and on key press event actions for more validations.            
             String City = txtCity.getText();
             if( (City.isEmpty() || City == null)){
@@ -369,8 +460,7 @@ public class createPanel extends javax.swing.JPanel {
                 return;
             }
             
-        Uber car = uberObj.addNewCars();
-        
+        Uber car = uberObj.addNewCars(); 
         car.setCarName(carName);
         car.setIsAvailable(isAvailable);
         car.setCarManufacturer(carMnfName);
@@ -380,9 +470,19 @@ public class createPanel extends javax.swing.JPanel {
         car.setModelNum(ModelNum);
         car.setCity(City);
         car.setMaintenanceExpiryCerti(MaintenanceExpiryCerti);
-        
+        Date currDate = new Date();
+
+        for(Uber carObj: uberObj.getUberCars()){
+            if(carObj.getMaintenanceExpiryCerti().before(currDate)){  
+                car.setIsExpired("Expired");
+            }        
+            else if(currDate.before(carObj.getMaintenanceExpiryCerti())){
+                    car.setIsExpired("Not Expired");
+            }
+        }
         JOptionPane.showMessageDialog(this, "Car registered successfully.");
        
+        uberObj.setUpdatedTime(currDate);
         
         txtCarNme.setText("");
         txtCarMnfName.setText("");
@@ -394,16 +494,8 @@ public class createPanel extends javax.swing.JPanel {
         catch(Exception e){
             JOptionPane.showMessageDialog(this, e);
         }
-        
-
-        
-        
-        
-        
     }//GEN-LAST:event_btnSubmitActionPerformed
 
-
-    
     
     
     private void txtCarNmeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCarNmeKeyPressed
@@ -418,14 +510,48 @@ public class createPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtCarNmeKeyPressed
 
+    private void btnFileUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileUploadActionPerformed
+        // TODO add your handling code here:
+        JFileChooser file = new JFileChooser();
+        file.setCurrentDirectory(new File(System.getProperty("user.home")));
+        int res = file.showSaveDialog(null);
+        if(res == JFileChooser.APPROVE_OPTION){
+            File selectedFile = file.getSelectedFile();
+            uberObj.setFileUploadUrl(selectedFile.getAbsolutePath());
+        }        
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(uberObj.getFileUploadUrl()),
+                        StandardCharsets.US_ASCII))
+                {   
+                    String line = br.readLine();
+                    while (line != null){
+                        String[] rows = line.split(",");
+                        if(rows.length == 9)
+                        {
+                        createDetailsfromFile(rows);
+                        line = br.readLine();
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(this,"Few entries are missing in the file.");
+                        }
+                    }
+                    JOptionPane.showMessageDialog(this,"File Uploaded Successfully.");
+                }   catch (Exception e) {
+                        JOptionPane.showMessageDialog(this, e+" Error uploading file.");
+                    }
+    }//GEN-LAST:event_btnFileUploadActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFileUpload;
     private javax.swing.JButton btnSubmit;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> comboBoxIsAvail;
     private javax.swing.JComboBox<String> comboBoxNoOfSeat;
     private com.toedter.calendar.JDateChooser jDateCertiExp;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private com.toedter.calendar.JYearChooser jYearMnfYr;
     private javax.swing.JLabel lblCarName;
     private javax.swing.JLabel lblCertiExp;

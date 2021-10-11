@@ -85,6 +85,15 @@ public class Uber {
     public void setMaintenanceExpiryCerti(Date maintenanceExpiryCerti) {
         this.maintenanceExpiryCerti = maintenanceExpiryCerti;
     }
+
+    public String getIsExpired() {
+        return isExpired;
+    }
+
+    public void setIsExpired(String isExpired) {
+        this.isExpired = isExpired;
+    }
+    
     
     private String carName;
     private boolean isAvailable;
@@ -94,7 +103,9 @@ public class Uber {
     private String serialNum;
     private String modelNum;
     private String city;
-    private Date maintenanceExpiryCerti;
+    private Date maintenanceExpiryCerti; 
+    private String isExpired;
+
     
     
           

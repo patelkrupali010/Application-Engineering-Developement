@@ -6,6 +6,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -18,7 +19,23 @@ public class UberList {
     }
     
     private ArrayList<Uber> uberCars;
+    private Date updatedTime;
+    private String fileUploadUrl;
 
+    public String getFileUploadUrl() {
+        return fileUploadUrl;
+    }
+
+    public void setFileUploadUrl(String fileUploadUrl) {
+        this.fileUploadUrl = fileUploadUrl;
+    }
+    public Date getUpdatedTime() {
+        return updatedTime;
+    }
+
+    public void setUpdatedTime(Date updatedTime) {
+        this.updatedTime = updatedTime;
+    }
     public ArrayList<Uber> getUberCars() {
         return uberCars;
     }
