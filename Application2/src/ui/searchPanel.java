@@ -126,7 +126,7 @@ public class searchPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSearch.setBackground(new java.awt.Color(0, 0, 204));
+        btnSearch.setBackground(new java.awt.Color(204, 204, 204));
         btnSearch.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -199,7 +199,7 @@ public class searchPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("Basic Search");
 
-        btnSearch1.setBackground(new java.awt.Color(0, 0, 204));
+        btnSearch1.setBackground(new java.awt.Color(204, 204, 204));
         btnSearch1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnSearch1.setText("Search");
         btnSearch1.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +208,7 @@ public class searchPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSearch2.setBackground(new java.awt.Color(0, 0, 204));
+        btnSearch2.setBackground(new java.awt.Color(204, 204, 204));
         btnSearch2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnSearch2.setText("Search");
         btnSearch2.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +217,7 @@ public class searchPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSearch3.setBackground(new java.awt.Color(0, 0, 204));
+        btnSearch3.setBackground(new java.awt.Color(204, 204, 204));
         btnSearch3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnSearch3.setText("Search");
         btnSearch3.addActionListener(new java.awt.event.ActionListener() {
@@ -226,7 +226,7 @@ public class searchPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSearch5.setBackground(new java.awt.Color(0, 0, 204));
+        btnSearch5.setBackground(new java.awt.Color(204, 204, 204));
         btnSearch5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnSearch5.setText("Search");
         btnSearch5.addActionListener(new java.awt.event.ActionListener() {
@@ -235,7 +235,7 @@ public class searchPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSearch6.setBackground(new java.awt.Color(0, 0, 204));
+        btnSearch6.setBackground(new java.awt.Color(204, 204, 204));
         btnSearch6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnSearch6.setText("Search");
         btnSearch6.addActionListener(new java.awt.event.ActionListener() {
@@ -244,7 +244,7 @@ public class searchPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSearch7.setBackground(new java.awt.Color(0, 0, 204));
+        btnSearch7.setBackground(new java.awt.Color(204, 204, 204));
         btnSearch7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnSearch7.setText("Search");
         btnSearch7.addActionListener(new java.awt.event.ActionListener() {
@@ -253,7 +253,7 @@ public class searchPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSearch8.setBackground(new java.awt.Color(0, 0, 204));
+        btnSearch8.setBackground(new java.awt.Color(204, 204, 204));
         btnSearch8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnSearch8.setText("Search");
         btnSearch8.addActionListener(new java.awt.event.ActionListener() {
