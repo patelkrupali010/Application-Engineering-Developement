@@ -433,6 +433,11 @@ public class viewPanel extends javax.swing.JPanel {
             DefaultTableModel model = (DefaultTableModel)tblCarReg.getModel();
             
             txtCarNmeView.setText(model.getValueAt(i, 0).toString());
+            if( (txtCarNmeView.getText().isEmpty() || txtCarNmeView.getText() == null)){
+                JOptionPane.showMessageDialog(txtCarNmeView, "Error: Car name is null or empty");
+                return;
+                
+            }
 //            txtIsAvail.setText((model.getValueAt(i, 1).toString()));
             comboIsAvailView.setSelectedItem(model.getValueAt(i, 1).toString());
             txtCarMnfNameView.setText(model.getValueAt(i, 2).toString());

@@ -362,7 +362,7 @@ public class createPanel extends javax.swing.JPanel {
             }
         }
         Uber uber = uberObj.addNewCars();
-        uber.setCarName(rows[1].trim());
+        uber.setCarName(rows[0].trim());
         if(rows[1].equals("Yes")){
             uber.setIsAvailable(true);
         }
