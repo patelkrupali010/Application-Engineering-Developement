@@ -5,6 +5,10 @@
  */
 package ui;
 
+import java.awt.Image;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import model.Patient;
 import model.PatientDirectory;
 import model.Person;
@@ -24,15 +28,21 @@ public class MainFrame extends javax.swing.JFrame {
     Patient patient;
     PersonDirectory persondirectory;
     PatientDirectory patientdirectory;
-    
+
+//    ImageIcon imageIcon = new ImageIcon(new ImageIcon("img.jfif").getImage().getScaledInstance(WIDTH, HEIGHT, Image.SCALE_DEFAULT));
+    ImageIcon imageIcon = new ImageIcon(new ImageIcon("img4.png").getImage().getScaledInstance(712, 675, Image.SCALE_DEFAULT));   
     
     public MainFrame() {
-        initComponents();
-        
+        initComponents();       
         patientdirectory = new PatientDirectory();
         persondirectory = new PersonDirectory();
+        jLabel1.setIcon(imageIcon);
+//        jLabel1.setSize( jLabel1.getPreferredSize() );
+//        jLabel1.setSize( 712,675 );
 
-        
+//        jLabel1.setBounds(10,10,712,675);
+
+    
     }
 
     /**
@@ -51,6 +61,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         btnAddVitals = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -129,15 +140,18 @@ public class MainFrame extends javax.swing.JFrame {
         workArea.setBackground(new java.awt.Color(204, 204, 204));
         workArea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 675, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
         );
 
         splitPane.setRightComponent(workArea);
@@ -224,6 +238,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnRegisterPerson;
     private javax.swing.JButton btnSearch;
     private javax.swing.JPanel controlPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables

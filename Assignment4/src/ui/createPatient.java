@@ -90,7 +90,15 @@ public class createPatient extends javax.swing.JPanel {
             new String [] {
                 "First Name", "Last Name", "Age", "Mobile Number", "Email", "House Number", "Street", "Community", "City", "Patient I'd"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblPatient.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblPatientMouseClicked(evt);
@@ -101,42 +109,52 @@ public class createPatient extends javax.swing.JPanel {
         lblFirstName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblFirstName.setForeground(new java.awt.Color(102, 102, 102));
         lblFirstName.setText("First Name:");
+        lblFirstName.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblLastName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblLastName.setForeground(new java.awt.Color(102, 102, 102));
         lblLastName.setText("Last Name:");
+        lblLastName.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblAge.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblAge.setForeground(new java.awt.Color(102, 102, 102));
         lblAge.setText("Age:");
+        lblAge.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblMobNo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblMobNo.setForeground(new java.awt.Color(102, 102, 102));
         lblMobNo.setText("Mobile Number:");
+        lblMobNo.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(102, 102, 102));
         lblEmail.setText("Email I'd:");
+        lblEmail.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblHouseNo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblHouseNo.setForeground(new java.awt.Color(102, 102, 102));
         lblHouseNo.setText("House Number:");
+        lblHouseNo.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblStreet.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblStreet.setForeground(new java.awt.Color(102, 102, 102));
         lblStreet.setText("Street:");
+        lblStreet.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblCommunity.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCommunity.setForeground(new java.awt.Color(102, 102, 102));
         lblCommunity.setText("Community:");
+        lblCommunity.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblCity.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCity.setForeground(new java.awt.Color(102, 102, 102));
         lblCity.setText("City:");
+        lblCity.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblPatientId.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPatientId.setForeground(new java.awt.Color(102, 102, 102));
         lblPatientId.setText("Patient Id");
+        lblPatientId.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         txtFirstName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -299,7 +317,7 @@ public class createPatient extends javax.swing.JPanel {
                         .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
         );
@@ -334,7 +352,7 @@ public class createPatient extends javax.swing.JPanel {
                 return;
             }
             
-            if(txtAge.getText().isEmpty() || txtAge.getText()==null || txtAge.getText().matches("\\d")){
+            if(txtAge.getText().isEmpty() || txtAge.getText()==null){
                 JOptionPane.showMessageDialog(txtAge, "Error: Age is null or empty");
                 flag = 0;
                 return;                
@@ -526,7 +544,7 @@ public class createPatient extends javax.swing.JPanel {
     private void txtAgeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+        if(Character.isDigit(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
             txtAge.setEditable(true);  
         }
         else{
@@ -546,7 +564,7 @@ public class createPatient extends javax.swing.JPanel {
     private void txtHouseNoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHouseNoKeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+        if(Character.isDigit(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
             txtHouseNo.setEditable(true);  
         }
         else{
@@ -558,7 +576,7 @@ public class createPatient extends javax.swing.JPanel {
     private void txtStreetKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStreetKeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+        if(Character.isDigit(c) || Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
             txtStreet.setEditable(true);  
         }
         else{

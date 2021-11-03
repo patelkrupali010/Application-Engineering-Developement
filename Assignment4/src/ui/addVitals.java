@@ -96,7 +96,15 @@ public class addVitals extends javax.swing.JPanel {
             new String [] {
                 "Patient Id", "Appointment date", "Respiratory Rate", "Blood Pressure", "Heart Rate"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblApt.setSelectionBackground(new java.awt.Color(255, 102, 102));
         tblApt.setSelectionForeground(new java.awt.Color(0, 0, 0));
         tblApt.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -139,6 +147,24 @@ public class addVitals extends javax.swing.JPanel {
         lblBP.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         txtPatId.setEditable(false);
+
+        txtResRate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtResRateKeyPressed(evt);
+            }
+        });
+
+        txtHeartRate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtHeartRateKeyPressed(evt);
+            }
+        });
+
+        txtBp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBpKeyPressed(evt);
+            }
+        });
 
         btnSubmit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnSubmit.setText("Submit");
@@ -372,6 +398,42 @@ catch(Exception e){
             Logger.getLogger(addVitals.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void txtResRateKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResRateKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isDigit(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            txtResRate.setEditable(true);  
+        }
+        else{
+            txtResRate.setEditable(false);
+            JOptionPane.showMessageDialog(txtResRate, "Invalid Respiratory Rate");
+        }
+    }//GEN-LAST:event_txtResRateKeyPressed
+
+    private void txtBpKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBpKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isDigit(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            txtBp.setEditable(true);  
+        }
+        else{
+            txtBp.setEditable(false);
+            JOptionPane.showMessageDialog(txtBp, "Invalid Blood Pressure");
+        }
+    }//GEN-LAST:event_txtBpKeyPressed
+
+    private void txtHeartRateKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHeartRateKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isDigit(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            txtHeartRate.setEditable(true);  
+        }
+        else{
+            txtHeartRate.setEditable(false);
+            JOptionPane.showMessageDialog(txtHeartRate, "Invalid Heart Rate");
+        }
+    }//GEN-LAST:event_txtHeartRateKeyPressed
     
     
     private void insertIntoAptTable(PatientDirectory patientDirectory) {
