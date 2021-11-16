@@ -18,46 +18,50 @@ public class Restaurant extends  UserAccount{
     public Restaurant(String userName, String password, String name, String address, String phone) {
         setUsername(userName);
         setPassword(password);
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-        this.menu = new Menu();
+        this.restaurantName = name;
+        this.restaurantAddress = address;
+        this.restaurantContact = phone;
+        this.restaurantMenu = new Menu();
     }
 
-    public String getName() {
-        return name;
+    public String getRestaurantName() {
+        return restaurantName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getRestaurantAddress() {
+        return restaurantAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setRestaurantAddress(String restaurantAddress) {
+        this.restaurantAddress = restaurantAddress;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getRestaurantContact() {
+        return restaurantContact;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setRestaurantContact(String restaurantContact) {
+        this.restaurantContact = restaurantContact;
     }
 
-    public Menu getMenu() {
-        return menu;
+    public Menu getRestaurantMenu() {
+        return restaurantMenu;
     }
 
-    public void setMenu(Menu menu) {
-        this.menu = menu;
+    public void setRestaurantMenu(Menu restaurantMenu) {
+        this.restaurantMenu = restaurantMenu;
     }
-    private String name;
-    private String address;
-    private String phone;
-    private Menu menu;
+
+
+    
+    
+    private String restaurantName;
+    private String restaurantAddress;
+    private String restaurantContact;
+    private Menu restaurantMenu;
     
 }

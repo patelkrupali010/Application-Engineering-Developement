@@ -133,7 +133,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurantActionPerformed
         // TODO add your handling code here:
-        ManageRestaurantJPanel restaurantJPanel = new ManageRestaurantJPanel();
+        ManageRestaurantJPanel restaurantJPanel = new ManageRestaurantJPanel(account,ecosystem);
         rightWorkPanel.add(restaurantJPanel);
         CardLayout layout = (CardLayout) rightWorkPanel.getLayout();
         layout.next(rightWorkPanel);
@@ -149,7 +149,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeliveryActionPerformed
         // TODO add your handling code here:
-       ManageDeliveryJPanel deliveryJPanel = new ManageDeliveryJPanel();
+       ManageDeliveryJPanel deliveryJPanel = new ManageDeliveryJPanel(account,ecosystem);
         rightWorkPanel.add(deliveryJPanel);
         CardLayout layout = (CardLayout) rightWorkPanel.getLayout();
         layout.next(rightWorkPanel);

@@ -34,7 +34,9 @@ public class DeliveryMan extends  UserAccount{
     
      public DeliveryMan(String userName, String password, String name,  String phone) {
         setUsername(userName);
-        setPassword(password);  
+        setPassword(password); 
+        setRole(new DeliverManRole());
+        
         this.name = name;
         this.phone = phone;
     }

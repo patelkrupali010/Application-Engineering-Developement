@@ -65,72 +65,103 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCustomer = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(153, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Customers");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 940, 50));
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Username");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 500, 110, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 110, 30));
 
-        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 290, 30));
+        txtUserName.setBackground(new java.awt.Color(153, 0, 0));
+        txtUserName.setForeground(new java.awt.Color(255, 255, 255));
+        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, 290, 30));
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Password");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 130, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 130, 30));
 
+        txtPassword.setBackground(new java.awt.Color(153, 0, 0));
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
             }
         });
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 550, 290, 30));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, 290, 30));
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Name");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 130, 30));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 130, 30));
 
+        txtName.setBackground(new java.awt.Color(153, 0, 0));
+        txtName.setForeground(new java.awt.Color(255, 255, 255));
         txtName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtNameKeyPressed(evt);
             }
         });
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 352, 290, 30));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 290, 30));
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Address");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 100, 30));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 100, 30));
 
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, 290, 30));
+        txtAddress.setBackground(new java.awt.Color(153, 0, 0));
+        txtAddress.setForeground(new java.awt.Color(255, 255, 255));
+        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 290, 30));
 
+        btnCreateCustomer.setIcon(new javax.swing.ImageIcon("C:\\Users\\krupa\\Downloads\\Assignment5Skeleton\\db4odemo\\add1.png")); // NOI18N
         btnCreateCustomer.setText("Create");
         btnCreateCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateCustomerActionPerformed(evt);
             }
         });
-        add(btnCreateCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 630, 90, 30));
+        add(btnCreateCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 510, 90, 30));
 
+        btnModify.setIcon(new javax.swing.ImageIcon("C:\\Users\\krupa\\Downloads\\Assignment5Skeleton\\db4odemo\\edit1.png")); // NOI18N
         btnModify.setText("Modify");
         btnModify.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModifyActionPerformed(evt);
             }
         });
-        add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 630, 90, 30));
+        add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, 90, 30));
 
+        btnDelete.setIcon(new javax.swing.ImageIcon("C:\\Users\\krupa\\Downloads\\Assignment5Skeleton\\db4odemo\\del.png")); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 630, 100, 30));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 510, 100, 30));
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Phone");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 450, 130, 30));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 130, 30));
 
-        add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, 290, 30));
+        txtPhone.setBackground(new java.awt.Color(153, 0, 0));
+        txtPhone.setForeground(new java.awt.Color(255, 255, 255));
+        add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 290, 30));
 
+        tblCustomer.setAutoCreateRowSorter(true);
+        tblCustomer.setBackground(new java.awt.Color(153, 0, 0));
+        tblCustomer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        tblCustomer.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tblCustomer.setForeground(new java.awt.Color(255, 255, 255));
         tblCustomer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -142,6 +173,9 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
                 "Name", "Address", "Phone", "Username", "Password"
             }
         ));
+        tblCustomer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblCustomer.setGridColor(new java.awt.Color(255, 255, 255));
+        tblCustomer.setSelectionBackground(new java.awt.Color(153, 0, 0));
         tblCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblCustomerMouseClicked(evt);
@@ -149,132 +183,8 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblCustomer);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 940, 170));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 940, 90));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnCreateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCustomerActionPerformed
-        // TODO add your handling code here:
-        int flag = 1;
-
-
-        
-        if( (txtName.getText().isEmpty() || txtName.getText() == null)){
-            JOptionPane.showMessageDialog(txtName, "Error: Name is null or empty");
-            flag = 0;
-            return;
-        } 
-        
-        if( (txtAddress.getText().isEmpty() || txtAddress.getText() == null)){
-            JOptionPane.showMessageDialog(txtAddress, "Error: Address is null or empty");
-            flag = 0;
-            return;
-        }
-        
-        if(txtPhone.getText().isEmpty() || txtPhone.getText() == null || !txtPhone.getText().matches("^\\d{3}-\\d{3}-\\d{4}$")){
-            JOptionPane.showMessageDialog(this,"Error: Phone Number must be in the form XXX-XXX-XXXX and cannot be null or empty");
-            return;
-        }
-        
-        if( (txtUserName.getText().isEmpty() || txtUserName.getText() == null)){
-            JOptionPane.showMessageDialog(txtUserName, "Error: Username is null or empty");
-            flag = 0;
-            return;
-        }
-        
-        if( (txtPassword.getText().isEmpty() || txtPassword.getText() == null)){
-            JOptionPane.showMessageDialog(txtPassword, "Error: Password is null or empty");
-            flag = 0;
-            return;
-        } 
-        
-        if( txtUserName.getText().isEmpty()||txtPassword.getText().isEmpty()|| txtName.getText().isEmpty() || txtAddress.getText().isEmpty() || txtPhone.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Please enter all mandatory fields");
-            return;
-        }
-        
-        if(flag == 1){
-            if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText())){
-            
-            Customer customer = new Customer(txtUserName.getText(), txtPassword.getText(), txtName.getText(), txtAddress.getText(), txtPhone.getText());
-            ecosystem.getUserAccountDirectory().addUserAccount(customer);
-            ecosystem.getCustomerDirectory().addCustomer(customer);
-
-            insertIntoTable();
-            txtUserName.setText("");
-            txtPassword.setText("");
-            txtName.setText("");
-            txtAddress.setText("");
-            txtPhone.setText("");
-            JOptionPane.showMessageDialog(this,"Custmore details are created.");
-            }else{
-                JOptionPane.showMessageDialog(null, "Username " + txtUserName.getText() + " already exists !!!, Please try a new one");
-            }
-       }
-    }//GEN-LAST:event_btnCreateCustomerActionPerformed
-
-    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
-        int flag = 1;
-        if( (txtName.getText().isEmpty() || txtName.getText() == null)){
-            JOptionPane.showMessageDialog(txtName, "Error: Name is null or empty");
-            flag = 0;
-            return;
-        } 
-        
-        if( (txtAddress.getText().isEmpty() || txtAddress.getText() == null)){
-            JOptionPane.showMessageDialog(txtAddress, "Error: Address is null or empty");
-            flag = 0;
-            return;
-        }
-        
-        if(txtPhone.getText().isEmpty() || txtPhone.getText() == null || !txtPhone.getText().matches("^\\d{3}-\\d{3}-\\d{4}$")){
-            JOptionPane.showMessageDialog(this,"Error: Phone Number must be in the form XXX-XXX-XXXX and cannot be null or empty");
-            return;
-        }
-        
-        if( (txtUserName.getText().isEmpty() || txtUserName.getText() == null)){
-            JOptionPane.showMessageDialog(txtUserName, "Error: Username is null or empty");
-            flag = 0;
-            return;
-        }
-        
-        if( (txtPassword.getText().isEmpty() || txtPassword.getText() == null)){
-            JOptionPane.showMessageDialog(txtPassword, "Error: Password is null or empty");
-            flag = 0;
-            return;
-        }
-        
-        if( txtUserName.getText().isEmpty()||txtPassword.getText().isEmpty()|| txtName.getText().isEmpty() || txtAddress.getText().isEmpty() || txtPhone.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Please enter all mandatory fields");
-            return;
-        } 
-        
-        int selectedRow = tblCustomer.getSelectedRow();
-        if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row");
-        } 
-        else {
-          if(flag == 1){
-//            Customer customer = (Customer) tblCustomer.getValueAt(selectedRow, 0);
-            Customer customer = ecosystem.getCustomerDirectory().getCustomerList().get(selectedRow);
-            customer.setUsername(txtUserName.getText());
-            customer.setPassword(txtPassword.getText());
-            customer.setName(txtName.getText());
-            customer.setPhone(txtPhone.getText());
-            customer.setAddress(txtAddress.getText());
-            insertIntoTable();
-            txtUserName.setText("");
-            txtPassword.setText("");
-            txtName.setText("");
-            txtPhone.setText("");
-            txtAddress.setText("");
-               
-            JOptionPane.showMessageDialog(this,"Customer details are updated.");
-    
-          }
-        }
-    }//GEN-LAST:event_btnModifyActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         int selectedRow = tblCustomer.getSelectedRow();
@@ -339,6 +249,128 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         }     
         }
     }//GEN-LAST:event_tblCustomerMouseClicked
+
+    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
+        int flag = 1;
+        if( (txtName.getText().isEmpty() || txtName.getText() == null)){
+            JOptionPane.showMessageDialog(txtName, "Error: Name is null or empty");
+            flag = 0;
+            return;
+        }
+
+        if( (txtAddress.getText().isEmpty() || txtAddress.getText() == null)){
+            JOptionPane.showMessageDialog(txtAddress, "Error: Address is null or empty");
+            flag = 0;
+            return;
+        }
+
+        if(txtPhone.getText().isEmpty() || txtPhone.getText() == null || !txtPhone.getText().matches("^\\d{3}-\\d{3}-\\d{4}$")){
+            JOptionPane.showMessageDialog(this,"Error: Phone Number must be in the form XXX-XXX-XXXX and cannot be null or empty");
+            return;
+        }
+
+        if( (txtUserName.getText().isEmpty() || txtUserName.getText() == null)){
+            JOptionPane.showMessageDialog(txtUserName, "Error: Username is null or empty");
+            flag = 0;
+            return;
+        }
+
+        if( (txtPassword.getText().isEmpty() || txtPassword.getText() == null)){
+            JOptionPane.showMessageDialog(txtPassword, "Error: Password is null or empty");
+            flag = 0;
+            return;
+        }
+
+        if( txtUserName.getText().isEmpty()||txtPassword.getText().isEmpty()|| txtName.getText().isEmpty() || txtAddress.getText().isEmpty() || txtPhone.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter all mandatory fields");
+            return;
+        }
+
+        int selectedRow = tblCustomer.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row");
+        }
+        else {
+            if(flag == 1){
+                //            Customer customer = (Customer) tblCustomer.getValueAt(selectedRow, 0);
+                Customer customer = ecosystem.getCustomerDirectory().getCustomerList().get(selectedRow);
+                customer.setUsername(txtUserName.getText());
+                customer.setPassword(txtPassword.getText());
+                customer.setName(txtName.getText());
+                customer.setPhone(txtPhone.getText());
+                customer.setAddress(txtAddress.getText());
+                insertIntoTable();
+                txtUserName.setText("");
+                txtPassword.setText("");
+                txtName.setText("");
+                txtPhone.setText("");
+                txtAddress.setText("");
+
+                JOptionPane.showMessageDialog(this,"Customer details are updated.");
+
+            }
+        }
+    }//GEN-LAST:event_btnModifyActionPerformed
+
+    private void btnCreateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCustomerActionPerformed
+        // TODO add your handling code here:
+        int flag = 1;
+
+        if( (txtName.getText().isEmpty() || txtName.getText() == null)){
+            JOptionPane.showMessageDialog(txtName, "Error: Name is null or empty");
+            flag = 0;
+            return;
+        }
+
+        if( (txtAddress.getText().isEmpty() || txtAddress.getText() == null)){
+            JOptionPane.showMessageDialog(txtAddress, "Error: Address is null or empty");
+            flag = 0;
+            return;
+        }
+
+        if(txtPhone.getText().isEmpty() || txtPhone.getText() == null || !txtPhone.getText().matches("^\\d{3}-\\d{3}-\\d{4}$")){
+            JOptionPane.showMessageDialog(this,"Error: Phone Number must be in the form XXX-XXX-XXXX and cannot be null or empty");
+            return;
+        }
+
+        if( (txtUserName.getText().isEmpty() || txtUserName.getText() == null)){
+            JOptionPane.showMessageDialog(txtUserName, "Error: Username is null or empty");
+            flag = 0;
+            return;
+        }
+
+        if( (txtPassword.getText().isEmpty() || txtPassword.getText() == null)){
+            JOptionPane.showMessageDialog(txtPassword, "Error: Password is null or empty");
+            flag = 0;
+            return;
+        }
+
+        if( txtUserName.getText().isEmpty()||txtPassword.getText().isEmpty()|| txtName.getText().isEmpty() || txtAddress.getText().isEmpty() || txtPhone.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter all mandatory fields");
+            return;
+        }
+
+        if(flag == 1){
+            if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText())){
+
+                Customer customer = new Customer(txtUserName.getText(), txtPassword.getText(), txtName.getText(), txtAddress.getText(), txtPhone.getText());
+                ecosystem.getUserAccountDirectory().addUserAccount(customer);
+                ecosystem.getCustomerDirectory().addCustomer(customer);
+
+                insertIntoTable();
+                txtUserName.setText("");
+                txtPassword.setText("");
+                txtName.setText("");
+                txtAddress.setText("");
+                txtPhone.setText("");
+                JOptionPane.showMessageDialog(this,"Custmore details are created.");
+            }else{
+                JOptionPane.showMessageDialog(null, "Username " + txtUserName.getText() + " already exists !!!, Please try a new one");
+            }
+        }
+    }//GEN-LAST:event_btnCreateCustomerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

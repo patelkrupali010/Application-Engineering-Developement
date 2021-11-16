@@ -19,7 +19,7 @@ public class RestaurantDirectory {
         restaurantList.add(restaurant);
     }
 
-    public ArrayList<Restaurant> generateRestaurantList() {
+public ArrayList<Restaurant> generateRestaurantList() {
         return restaurantList;
     }
 

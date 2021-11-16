@@ -79,7 +79,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         txtUsername.setBackground(new java.awt.Color(153, 0, 0));
         txtUsername.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        txtUsername.setForeground(new java.awt.Color(204, 204, 204));
+        txtUsername.setForeground(new java.awt.Color(255, 255, 255));
         txtUsername.setToolTipText("Enter Username");
         txtUsername.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +96,7 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         jPwd.setBackground(new java.awt.Color(153, 0, 0));
-        jPwd.setForeground(new java.awt.Color(204, 204, 204));
+        jPwd.setForeground(new java.awt.Color(255, 255, 255));
         jPwd.setToolTipText("Enter Password");
         jPwd.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         jPwd.addActionListener(new java.awt.event.ActionListener() {
