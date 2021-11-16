@@ -36,6 +36,8 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         system = dB4OUtil.retrieveSystem();
 //        this.setSize(1680, 1050);
+        loginJPanel.setVisible(true);
+        jPanelRedirect.setVisible(false);
         userAccDir = new UserAccountDirectory();
 
     }
@@ -53,12 +55,12 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblDeliveryBoyImg = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        txtUsername = new javax.swing.JTextField();
         lblUsername = new javax.swing.JLabel();
-        lblPwd = new javax.swing.JLabel();
+        txtUsername = new javax.swing.JTextField();
+        btnLogin = new javax.swing.JButton();
         jPwd = new javax.swing.JPasswordField();
+        lblPwd = new javax.swing.JLabel();
         lblImgIcon = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jPanelRedirect = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,6 +73,10 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 0, 0));
         jPanel2.setForeground(new java.awt.Color(153, 0, 0));
 
+        lblUsername.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsername.setText("Username");
+
         txtUsername.setBackground(new java.awt.Color(153, 0, 0));
         txtUsername.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         txtUsername.setForeground(new java.awt.Color(204, 204, 204));
@@ -82,13 +88,12 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        lblUsername.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsername.setText("Username");
-
-        lblPwd.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblPwd.setForeground(new java.awt.Color(255, 255, 255));
-        lblPwd.setText("Password");
+        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/loginButtonImg.png"))); // NOI18N
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         jPwd.setBackground(new java.awt.Color(153, 0, 0));
         jPwd.setForeground(new java.awt.Color(204, 204, 204));
@@ -100,22 +105,19 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        lblPwd.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblPwd.setForeground(new java.awt.Color(255, 255, 255));
+        lblPwd.setText("Password");
+
         lblImgIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImgIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/loginLogo.png"))); // NOI18N
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/loginButtonImg.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(171, Short.MAX_VALUE)
+                .addContainerGap(164, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,11 +127,11 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(131, 131, 131))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(212, 212, 212))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(lblImgIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(205, 205, 205))))
+                        .addGap(205, 205, 205))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(206, 206, 206))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,9 +150,9 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(48, 48, 48)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(249, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -158,7 +160,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(lblDeliveryBoyImg, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblDeliveryBoyImg, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -167,8 +169,8 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(lblDeliveryBoyImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDeliveryBoyImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
@@ -188,7 +190,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanelRedirect.setBackground(new java.awt.Color(153, 0, 0));
         jPanelRedirect.setForeground(new java.awt.Color(153, 0, 0));
         jPanelRedirect.setLayout(new java.awt.CardLayout());
-        getContentPane().add(jPanelRedirect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 1160, 760));
+        getContentPane().add(jPanelRedirect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 1150, 760));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -201,18 +203,24 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         // Get user name
+
        String userName = txtUsername.getText();
-       String password = jPwd.getPassword().toString();
-       userAccount=userAccDir.authenticateUser(userName, password);
+       String password = new String(jPwd.getPassword());
+       userAccount=system.getUserAccountDirectory().authenticateUser(userName, password);
        
         if(userAccount==null){
             JOptionPane.showMessageDialog(null, "Invalid credentials");
             return;
         }
         else{
+        loginJPanel.setVisible(false);
+        jPanelRedirect.setVisible(true);
+        txtUsername.setText("");
+        jPwd.setText("");
+            
         if (userAccount != null) {
             if (userAccount instanceof Customer){
                     jPanelRedirect.add("workArea", userAccount.getRole().createWorkArea(jPanelRedirect, (Customer)userAccount, system));
@@ -227,11 +235,12 @@ public class MainJFrame extends javax.swing.JFrame {
             
             CardLayout layout = (CardLayout) jPanelRedirect.getLayout();
             layout.next(jPanelRedirect);
-        }            
+        }
+        
         }        
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,7 +277,7 @@ public class MainJFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelRedirect;
