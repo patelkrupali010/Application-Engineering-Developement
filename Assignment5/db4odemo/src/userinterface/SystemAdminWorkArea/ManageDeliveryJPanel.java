@@ -30,6 +30,7 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
     public ManageDeliveryJPanel(UserAccount userAccount,EcoSystem ecosystem) {
         initComponents();
         this.ecosystem=ecosystem;
+        insertIntoTable();
     }
 
     /**

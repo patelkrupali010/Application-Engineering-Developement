@@ -34,6 +34,7 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         initComponents();
         this.ecosystem=ecosystem;
         this.userAccount = userAccount;
+        insertIntoTable();
     }
 
     /**

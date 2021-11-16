@@ -37,6 +37,8 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         this.customer=customer;
         this.customerDirectory=customerDirectory;
+        insertIntoTable();
+        
     }
 
     /**
@@ -157,7 +159,6 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         txtPhone.setForeground(new java.awt.Color(255, 255, 255));
         add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 290, 30));
 
-        tblCustomer.setAutoCreateRowSorter(true);
         tblCustomer.setBackground(new java.awt.Color(153, 0, 0));
         tblCustomer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         tblCustomer.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -293,7 +294,6 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         }
         else {
             if(flag == 1){
-                //            Customer customer = (Customer) tblCustomer.getValueAt(selectedRow, 0);
                 Customer customer = ecosystem.getCustomerDirectory().getCustomerList().get(selectedRow);
                 customer.setUsername(txtUserName.getText());
                 customer.setPassword(txtPassword.getText());
