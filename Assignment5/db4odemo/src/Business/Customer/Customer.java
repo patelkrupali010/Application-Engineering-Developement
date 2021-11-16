@@ -13,7 +13,15 @@ import Business.UserAccount.UserAccount;
  * @author harold
  */
 public class Customer extends UserAccount  {
+    
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+    
     public String getName() {
         return name;
     }
@@ -37,6 +45,7 @@ public class Customer extends UserAccount  {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+    private String id;
     private String name;
     private String address;
     private String phone;
@@ -45,6 +54,7 @@ public class Customer extends UserAccount  {
     setUsername(userName);
     setPassword(password);
     setRole(new CustomerRole());
+    this.id = id;
     this.name = name;
     this.address = address;
     this.phone = phone;

@@ -10,6 +10,7 @@ import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
+import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
@@ -294,21 +295,30 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         }
         else {
             if(flag == 1){
-                Customer customer = ecosystem.getCustomerDirectory().getCustomerList().get(selectedRow);
-                customer.setUsername(txtUserName.getText());
-                customer.setPassword(txtPassword.getText());
-                customer.setName(txtName.getText());
-                customer.setPhone(txtPhone.getText());
-                customer.setAddress(txtAddress.getText());
-                insertIntoTable();
-                txtUserName.setText("");
-                txtPassword.setText("");
-                txtName.setText("");
-                txtPhone.setText("");
-                txtAddress.setText("");
+                for(UserAccount userAccount: ecosystem.getUserAccountDirectory().getUserAccountList()){
+                    if(txtUserName.getText().equals(userAccount.getUsername())){
+                        if(userAccount.getId() != ecosystem.getCustomerDirectory().getCustomerList().get(selectedRow).getId())
+                        {
+                            JOptionPane.showMessageDialog(null, "Username already exists!");
+                            return;
+                        }
+                    }
+                }
+                       
+            Customer customer = ecosystem.getCustomerDirectory().getCustomerList().get(selectedRow);
+            customer.setUsername(txtUserName.getText());
+            customer.setPassword(txtPassword.getText());
+            customer.setName(txtName.getText());
+            customer.setPhone(txtPhone.getText());
+            customer.setAddress(txtAddress.getText());
+            insertIntoTable();
+            txtUserName.setText("");
+            txtPassword.setText("");
+            txtName.setText("");
+            txtPhone.setText("");
+            txtAddress.setText("");
 
-                JOptionPane.showMessageDialog(this,"Customer details are updated.");
-
+            JOptionPane.showMessageDialog(this,"Customer details are updated.");
             }
         }
     }//GEN-LAST:event_btnModifyActionPerformed
@@ -353,9 +363,13 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         }
 
         if(flag == 1){
+            
+            String custId = UUID.randomUUID().toString();
+//            userAccount.setId(custId);
+            
             if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText())){
-
                 Customer customer = new Customer(txtUserName.getText(), txtPassword.getText(), txtName.getText(), txtAddress.getText(), txtPhone.getText());
+                customer.setId(custId);
                 ecosystem.getUserAccountDirectory().addUserAccount(customer);
                 ecosystem.getCustomerDirectory().addCustomer(customer);
 

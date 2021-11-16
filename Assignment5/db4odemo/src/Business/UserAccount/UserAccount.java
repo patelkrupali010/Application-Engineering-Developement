@@ -13,7 +13,7 @@ import Business.WorkQueue.WorkQueue;
  * @author raunak
  */
 public class UserAccount {
-    
+    private String id;
     private String username;
     private String password;
     private Employee employee;
@@ -25,6 +25,13 @@ public class UserAccount {
     }
     
     
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
     
     public String getUsername() {
         return username;
