@@ -18,12 +18,21 @@ public class Restaurant extends  UserAccount{
     public Restaurant(String userName, String password, String name, String address, String phone) {
         setUsername(userName);
         setPassword(password);
+        this.restaurantId = restaurantId;
         this.restaurantName = name;
         this.restaurantAddress = address;
         this.restaurantContact = phone;
         this.restaurantMenu = new Menu();
     }
 
+    public String getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(String restaurantId) {
+        this.restaurantId = restaurantId;
+    }
+    
     public String getRestaurantName() {
         return restaurantName;
     }
@@ -58,7 +67,8 @@ public class Restaurant extends  UserAccount{
 
 
     
-    
+ 
+    private String restaurantId;
     private String restaurantName;
     private String restaurantAddress;
     private String restaurantContact;

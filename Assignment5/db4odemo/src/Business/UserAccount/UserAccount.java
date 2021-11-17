@@ -14,6 +14,8 @@ import Business.WorkQueue.WorkQueue;
  */
 public class UserAccount {
     private String id;
+    private String restaurantId;
+    private String deliveryManId;
     private String username;
     private String password;
     private Employee employee;
@@ -31,6 +33,22 @@ public class UserAccount {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(String restaurantId) {
+        this.restaurantId = restaurantId;
+    }
+
+    public String getDeliveryManId() {
+        return deliveryManId;
+    }
+
+    public void setDeliveryManId(String deliveryManId) {
+        this.deliveryManId = deliveryManId;
     }
     
     public String getUsername() {

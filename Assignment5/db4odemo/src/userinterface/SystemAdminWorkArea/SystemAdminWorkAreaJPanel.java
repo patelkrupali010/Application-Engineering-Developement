@@ -11,7 +11,9 @@ import Business.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
+import static java.time.Clock.system;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -52,24 +54,27 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
         systemAdminPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        lblLogout = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         btnCust = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         btnRestaurant = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         btnDelivery = new javax.swing.JButton();
         rightWorkPanel = new javax.swing.JPanel();
 
-        setLayout(new java.awt.BorderLayout());
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(31, 50, 97));
-        jPanel3.setLayout(new java.awt.BorderLayout());
-
-        systemAdminPanel.setBackground(new java.awt.Color(255, 255, 255));
+        systemAdminPanel.setBackground(new java.awt.Color(153, 0, 0));
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 0));
         jPanel1.setForeground(new java.awt.Color(153, 0, 0));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblLogout.setIcon(new javax.swing.ImageIcon("C:\\Users\\krupa\\OneDrive\\Documents\\NetBeansProjects\\patel_krupali_001096158-main\\Assignment5\\db4odemo\\logout.png")); // NOI18N
+
+        jPanel2.setBackground(new java.awt.Color(248, 8, 8));
 
         btnCust.setBackground(new java.awt.Color(255, 255, 255));
         btnCust.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -81,7 +86,25 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnCustActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCust, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 210, 50));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnCust, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnCust, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel3.setBackground(new java.awt.Color(248, 8, 8));
 
         btnRestaurant.setBackground(new java.awt.Color(255, 255, 255));
         btnRestaurant.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -93,7 +116,25 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnRestaurantActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 210, 50));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel4.setBackground(new java.awt.Color(248, 8, 8));
 
         btnDelivery.setBackground(new java.awt.Color(255, 255, 255));
         btnDelivery.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -105,9 +146,51 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnDeliveryActionPerformed(evt);
             }
         });
-        jPanel1.add(btnDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 210, 50));
 
-        rightWorkPanel.setPreferredSize(new java.awt.Dimension(940, 808));
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLogout))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(lblLogout)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(606, Short.MAX_VALUE))
+        );
+
         rightWorkPanel.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout systemAdminPanelLayout = new javax.swing.GroupLayout(systemAdminPanel);
@@ -115,20 +198,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         systemAdminPanelLayout.setHorizontalGroup(
             systemAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(systemAdminPanelLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(rightWorkPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 961, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rightWorkPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         systemAdminPanelLayout.setVerticalGroup(
             systemAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rightWorkPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rightWorkPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, systemAdminPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel3.add(systemAdminPanel, java.awt.BorderLayout.CENTER);
-
-        add(jPanel3, java.awt.BorderLayout.CENTER);
+        add(systemAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurantActionPerformed
@@ -161,7 +243,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDelivery;
     private javax.swing.JButton btnRestaurant;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lblLogout;
     private javax.swing.JPanel rightWorkPanel;
     private javax.swing.JPanel systemAdminPanel;
     // End of variables declaration//GEN-END:variables

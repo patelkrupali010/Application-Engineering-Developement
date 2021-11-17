@@ -12,6 +12,7 @@ import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
+import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -253,9 +254,12 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         }
 
         if(flag == 1){
+            String restaurantId = UUID.randomUUID().toString();
+
             if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText())){
 
             Restaurant restaurant = new Restaurant(txtUserName.getText(), txtPassword.getText(), txtName.getText(),txtAddress.getText(), txtPhone.getText());
+                restaurant.setRestaurantId(restaurantId);
                 ecosystem.getUserAccountDirectory().addUserAccount(restaurant);
                 ecosystem.getRestaurantDirectory().addRestaurant(restaurant);
 
@@ -315,7 +319,15 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         }
         else {
             if(flag == 1){
-                //            Customer customer = (Customer) tblCustomer.getValueAt(selectedRow, 0);
+                for(UserAccount userAccount: ecosystem.getUserAccountDirectory().getUserAccountList()){
+                    if(txtUserName.getText().equals(userAccount.getUsername())){
+                        if(userAccount.getRestaurantId()!= ecosystem.getRestaurantDirectory().generateRestaurantList().get(selectedRow).getRestaurantId())
+                        {
+                            JOptionPane.showMessageDialog(null, "Username already exists!");
+                            return;
+                        }
+                    }
+                }
                 Restaurant restaurant = ecosystem.getRestaurantDirectory().generateRestaurantList().get(selectedRow);
                 restaurant.setUsername(txtUserName.getText());
                 restaurant.setPassword(txtPassword.getText());

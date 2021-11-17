@@ -12,6 +12,7 @@ import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
+import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -204,6 +205,7 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
     private void btnCreateRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateRestaurantActionPerformed
         // TODO add your handling code here:
         int flag = 1;
+        String deliveryManId = UUID.randomUUID().toString();
 
         if( (txtName.getText().isEmpty() || txtName.getText() == null)){
             JOptionPane.showMessageDialog(txtName, "Error: Name is null or empty");
@@ -238,6 +240,7 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
             if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText())){
 
               DeliveryMan deliveryMan = new DeliveryMan(txtUserName.getText(), txtPassword.getText(), txtName.getText(), txtPhone.getText());
+                deliveryMan.setDeliveryManId(deliveryManId);
                 ecosystem.getUserAccountDirectory().addUserAccount(deliveryMan);
                 ecosystem.getDeliveryManDirectory().addDeliveryMan(deliveryMan);
 
@@ -291,8 +294,16 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
         }
         else {
             if(flag == 1){
-                //            Customer customer = (Customer) tblCustomer.getValueAt(selectedRow, 0);
-              DeliveryMan deliveryMan  = ecosystem.getDeliveryManDirectory().getDeliveryManList().get(selectedRow);
+                for(UserAccount userAccount: ecosystem.getUserAccountDirectory().getUserAccountList()){
+                    if(txtUserName.getText().equals(userAccount.getUsername())){
+                        if(userAccount.getDeliveryManId()!= ecosystem.getDeliveryManDirectory().getDeliveryManList().get(selectedRow).getDeliveryManId())
+                        {
+                            JOptionPane.showMessageDialog(null, "Username already exists!");
+                            return;
+                        }
+                    }
+                }
+                DeliveryMan deliveryMan  = ecosystem.getDeliveryManDirectory().getDeliveryManList().get(selectedRow);
                 deliveryMan.setUsername(txtUserName.getText());
                 deliveryMan.setPassword(txtPassword.getText());
                 deliveryMan.setName(txtName.getText());

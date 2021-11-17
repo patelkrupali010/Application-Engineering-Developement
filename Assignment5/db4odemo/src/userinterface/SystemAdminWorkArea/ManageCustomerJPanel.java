@@ -8,12 +8,12 @@ package userinterface.SystemAdminWorkArea;
 import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
+import Business.Restaurant.Restaurant;
+import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
 import java.util.UUID;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,14 +23,15 @@ import javax.swing.table.DefaultTableModel;
 public class ManageCustomerJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageCustomerJPanel
+     * Creates new form ManageRestaurantJPanel
      */
-    
+
     EcoSystem ecosystem;
     UserAccountDirectory userAccountList;
     UserAccount userAccount;
     Customer customer;
     CustomerDirectory customerDirectory;
+   
     
     public ManageCustomerJPanel(UserAccount userAccount,EcoSystem ecosystem) {
         initComponents();
@@ -39,7 +40,6 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         this.customer=customer;
         this.customerDirectory=customerDirectory;
         insertIntoTable();
-        
     }
 
     /**
@@ -69,19 +69,20 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         tblCustomer = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(153, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 0));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Manage Customers");
+        jLabel1.setText("Manage Customer");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 940, 50));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Username");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 110, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 150, 30));
 
         txtUserName.setBackground(new java.awt.Color(153, 0, 0));
         txtUserName.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,7 +91,7 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Password");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 130, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 170, 30));
 
         txtPassword.setBackground(new java.awt.Color(153, 0, 0));
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,11 +104,16 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Name");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 130, 30));
+        jLabel4.setText("Customer Name");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 170, 30));
 
         txtName.setBackground(new java.awt.Color(153, 0, 0));
         txtName.setForeground(new java.awt.Color(255, 255, 255));
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
         txtName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtNameKeyPressed(evt);
@@ -117,8 +123,8 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Address");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 100, 30));
+        jLabel5.setText("Customer Address");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 140, 30));
 
         txtAddress.setBackground(new java.awt.Color(153, 0, 0));
         txtAddress.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,8 +159,8 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Phone");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 130, 30));
+        jLabel6.setText("Customer Phone");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 170, 30));
 
         txtPhone.setBackground(new java.awt.Color(153, 0, 0));
         txtPhone.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,12 +178,20 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Name", "Address", "Phone", "Username", "Password"
+                "Customer Name", "Customer  Address", "Customer Phone", "Username", "Password"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblCustomer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblCustomer.setGridColor(new java.awt.Color(255, 255, 255));
-        tblCustomer.setSelectionBackground(new java.awt.Color(153, 0, 0));
+        tblCustomer.setSelectionBackground(new java.awt.Color(204, 204, 204));
         tblCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblCustomerMouseClicked(evt);
@@ -188,33 +202,13 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 940, 90));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        int selectedRow = tblCustomer.getSelectedRow();
-
-        if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row.");
-        } else {
-//            Customer customer = (Customer) tblCustomer.getValueAt(selectedRow, 0);
-            Customer customer = ecosystem.getCustomerDirectory().getCustomerList().get(selectedRow);
-            CustomerDirectory customerDirectory = ecosystem.getCustomerDirectory();
-            customerDirectory.removeCustomer(customer);
-            JOptionPane.showMessageDialog(null, "Customer   "  + txtUserName.getText() + " deleted");
-            insertIntoTable();
-            txtName.setText("");
-            txtPhone.setText("");
-            txtUserName.setText("");
-            txtPassword.setText("");
-            txtAddress.setText("");
-        }
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
         // TODO add your handling code here:
-                char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
             txtName.setEditable(true);
         }
@@ -224,33 +218,68 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtNameKeyPressed
 
-    private void tblCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCustomerMouseClicked
+    private void btnCreateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCustomerActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblCustomer.getSelectedRow();
+        int flag = 1;
 
-        if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a row to update.");
+        if( (txtName.getText().isEmpty() || txtName.getText() == null)){
+            JOptionPane.showMessageDialog(txtName, "Error: Name is null or empty");
+            flag = 0;
+            return;
         }
-        else{
-            try{
-            DefaultTableModel model = (DefaultTableModel)tblCustomer.getModel();
-           Customer customer = ecosystem.getCustomerDirectory().getCustomerList().get(selectedRow);
 
-//            Customer  customer  = (Customer) tblCustomer.getValueAt(selectedRow, 0);
-            if(customer!=null){
-                txtName.setText(customer.getName());
-                txtAddress.setText(customer.getAddress());
-                txtPhone.setText(customer.getPhone());
-                txtUserName.setText(customer.getUsername());
-                txtPassword.setText(customer.getPassword());
+        if( (txtAddress.getText().isEmpty() || txtAddress.getText() == null)){
+            JOptionPane.showMessageDialog(txtAddress, "Error: Address is null or empty");
+            flag = 0;
+            return;
+        }
+
+        if(txtPhone.getText().isEmpty() || txtPhone.getText() == null || !txtPhone.getText().matches("^\\d{3}-\\d{3}-\\d{4}$")){
+            JOptionPane.showMessageDialog(this,"Error: Phone Number must be in the form XXX-XXX-XXXX and cannot be null or empty");
+            return;
+        }
+
+        if( (txtUserName.getText().isEmpty() || txtUserName.getText() == null)){
+            JOptionPane.showMessageDialog(txtUserName, "Error: Username is null or empty");
+            flag = 0;
+            return;
+        }
+
+        if( (txtPassword.getText().isEmpty() || txtPassword.getText() == null)){
+            JOptionPane.showMessageDialog(txtPassword, "Error: Password is null or empty");
+            flag = 0;
+            return;
+        }
+
+        if( txtUserName.getText().isEmpty()||txtPassword.getText().isEmpty()|| txtName.getText().isEmpty() || txtAddress.getText().isEmpty() || txtPhone.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter all mandatory fields");
+            return;
+        }
+
+        if(flag == 1){
+
+            String custId = UUID.randomUUID().toString();
+            //            userAccount.setId(custId);
+
+            if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText())){
+                Customer customer = new Customer(txtUserName.getText(), txtPassword.getText(), txtName.getText(), txtAddress.getText(), txtPhone.getText());
+                customer.setId(custId);
+                ecosystem.getUserAccountDirectory().addUserAccount(customer);
+                ecosystem.getCustomerDirectory().addCustomer(customer);
+
+                insertIntoTable();
+                txtUserName.setText("");
+                txtPassword.setText("");
+                txtName.setText("");
+                txtAddress.setText("");
+                txtPhone.setText("");
+                JOptionPane.showMessageDialog(this,"Custmore details are created.");
+            }else{
+                JOptionPane.showMessageDialog(null, "Username " + txtUserName.getText() + " already exists !!!, Please try a new one");
             }
         }
-        
-        catch(Exception e){
-            JOptionPane.showMessageDialog(this, e);
-        }     
-        }
-    }//GEN-LAST:event_tblCustomerMouseClicked
+    }//GEN-LAST:event_btnCreateCustomerActionPerformed
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         int flag = 1;
@@ -304,87 +333,76 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
                         }
                     }
                 }
-                       
-            Customer customer = ecosystem.getCustomerDirectory().getCustomerList().get(selectedRow);
-            customer.setUsername(txtUserName.getText());
-            customer.setPassword(txtPassword.getText());
-            customer.setName(txtName.getText());
-            customer.setPhone(txtPhone.getText());
-            customer.setAddress(txtAddress.getText());
-            insertIntoTable();
-            txtUserName.setText("");
-            txtPassword.setText("");
-            txtName.setText("");
-            txtPhone.setText("");
-            txtAddress.setText("");
 
-            JOptionPane.showMessageDialog(this,"Customer details are updated.");
-            }
-        }
-    }//GEN-LAST:event_btnModifyActionPerformed
-
-    private void btnCreateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCustomerActionPerformed
-        // TODO add your handling code here:
-        int flag = 1;
-
-        if( (txtName.getText().isEmpty() || txtName.getText() == null)){
-            JOptionPane.showMessageDialog(txtName, "Error: Name is null or empty");
-            flag = 0;
-            return;
-        }
-
-        if( (txtAddress.getText().isEmpty() || txtAddress.getText() == null)){
-            JOptionPane.showMessageDialog(txtAddress, "Error: Address is null or empty");
-            flag = 0;
-            return;
-        }
-
-        if(txtPhone.getText().isEmpty() || txtPhone.getText() == null || !txtPhone.getText().matches("^\\d{3}-\\d{3}-\\d{4}$")){
-            JOptionPane.showMessageDialog(this,"Error: Phone Number must be in the form XXX-XXX-XXXX and cannot be null or empty");
-            return;
-        }
-
-        if( (txtUserName.getText().isEmpty() || txtUserName.getText() == null)){
-            JOptionPane.showMessageDialog(txtUserName, "Error: Username is null or empty");
-            flag = 0;
-            return;
-        }
-
-        if( (txtPassword.getText().isEmpty() || txtPassword.getText() == null)){
-            JOptionPane.showMessageDialog(txtPassword, "Error: Password is null or empty");
-            flag = 0;
-            return;
-        }
-
-        if( txtUserName.getText().isEmpty()||txtPassword.getText().isEmpty()|| txtName.getText().isEmpty() || txtAddress.getText().isEmpty() || txtPhone.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Please enter all mandatory fields");
-            return;
-        }
-
-        if(flag == 1){
-            
-            String custId = UUID.randomUUID().toString();
-//            userAccount.setId(custId);
-            
-            if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText())){
-                Customer customer = new Customer(txtUserName.getText(), txtPassword.getText(), txtName.getText(), txtAddress.getText(), txtPhone.getText());
-                customer.setId(custId);
-                ecosystem.getUserAccountDirectory().addUserAccount(customer);
-                ecosystem.getCustomerDirectory().addCustomer(customer);
-
+                Customer customer = ecosystem.getCustomerDirectory().getCustomerList().get(selectedRow);
+                customer.setUsername(txtUserName.getText());
+                customer.setPassword(txtPassword.getText());
+                customer.setName(txtName.getText());
+                customer.setPhone(txtPhone.getText());
+                customer.setAddress(txtAddress.getText());
                 insertIntoTable();
                 txtUserName.setText("");
                 txtPassword.setText("");
                 txtName.setText("");
-                txtAddress.setText("");
                 txtPhone.setText("");
-                JOptionPane.showMessageDialog(this,"Custmore details are created.");
-            }else{
-                JOptionPane.showMessageDialog(null, "Username " + txtUserName.getText() + " already exists !!!, Please try a new one");
+                txtAddress.setText("");
+
+                JOptionPane.showMessageDialog(this,"Customer details are updated.");
             }
         }
-    }//GEN-LAST:event_btnCreateCustomerActionPerformed
+    }//GEN-LAST:event_btnModifyActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        int selectedRow = tblCustomer.getSelectedRow();
+
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row.");
+        } else {
+            //            Customer customer = (Customer) tblCustomer.getValueAt(selectedRow, 0);
+            Customer customer = ecosystem.getCustomerDirectory().getCustomerList().get(selectedRow);
+            CustomerDirectory customerDirectory = ecosystem.getCustomerDirectory();
+            customerDirectory.removeCustomer(customer);
+            JOptionPane.showMessageDialog(null, "Customer   "  + txtUserName.getText() + " deleted");
+            insertIntoTable();
+            txtName.setText("");
+            txtPhone.setText("");
+            txtUserName.setText("");
+            txtPassword.setText("");
+            txtAddress.setText("");
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void tblCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCustomerMouseClicked
+        // TODO add your handling code here:
+        int selectedRow = tblCustomer.getSelectedRow();
+
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to update.");
+        }
+        else{
+            try{
+                DefaultTableModel model = (DefaultTableModel)tblCustomer.getModel();
+                Customer customer = ecosystem.getCustomerDirectory().getCustomerList().get(selectedRow);
+
+                //            Customer  customer  = (Customer) tblCustomer.getValueAt(selectedRow, 0);
+                if(customer!=null){
+                    txtName.setText(customer.getName());
+                    txtAddress.setText(customer.getAddress());
+                    txtPhone.setText(customer.getPhone());
+                    txtUserName.setText(customer.getUsername());
+                    txtPassword.setText(customer.getPassword());
+                }
+            }
+
+            catch(Exception e){
+                JOptionPane.showMessageDialog(this, e);
+            }
+        }
+    }//GEN-LAST:event_tblCustomerMouseClicked
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -423,5 +441,6 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
                     model.addRow(row);
                 
             }
+    
     }
 }

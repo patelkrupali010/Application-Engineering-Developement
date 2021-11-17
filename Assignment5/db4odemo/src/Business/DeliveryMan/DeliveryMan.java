@@ -14,6 +14,14 @@ import Business.UserAccount.UserAccount;
  */
 public class DeliveryMan extends  UserAccount{
 
+    public String getDeliveryManId() {
+        return DeliveryManId;
+    }
+
+    public void setDeliveryManId(String DeliveryManId) {
+        this.DeliveryManId = DeliveryManId;
+    }
+    
     public String getName() {
         return name;
     }
@@ -29,6 +37,7 @@ public class DeliveryMan extends  UserAccount{
     public void setPhone(String phone) {
         this.phone = phone;
     }
+    private String DeliveryManId;
     private String name;
     private String phone;
     
@@ -39,6 +48,7 @@ public class DeliveryMan extends  UserAccount{
         
         this.name = name;
         this.phone = phone;
+        
     }
     
 }
