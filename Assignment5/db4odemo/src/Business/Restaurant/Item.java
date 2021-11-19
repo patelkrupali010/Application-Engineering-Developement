@@ -12,13 +12,27 @@ package Business.Restaurant;
 public class Item {
     private String name;
     private double price;
+    private int qty;
+
    
     public Item(String name, double price) {
         this.name = name;
         this.price = price;
+        this.qty = qty;
         
     }
-  
+
+    public Item() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+    
     public String getName() {
         return name;
     }

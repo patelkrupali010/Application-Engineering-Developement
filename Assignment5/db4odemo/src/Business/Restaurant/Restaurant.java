@@ -6,7 +6,6 @@
 package Business.Restaurant;
 
 import Business.Role.AdminRole;
-import java.awt.Menu;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -18,6 +17,7 @@ public class Restaurant extends  UserAccount{
     public Restaurant(String userName, String password, String name, String address, String phone) {
         setUsername(userName);
         setPassword(password);
+        setRole(new AdminRole());
         this.restaurantId = restaurantId;
         this.restaurantName = name;
         this.restaurantAddress = address;
@@ -25,10 +25,12 @@ public class Restaurant extends  UserAccount{
         this.restaurantMenu = new Menu();
     }
 
+    @Override
     public String getRestaurantId() {
         return restaurantId;
     }
 
+    @Override
     public void setRestaurantId(String restaurantId) {
         this.restaurantId = restaurantId;
     }
@@ -72,6 +74,5 @@ public class Restaurant extends  UserAccount{
     private String restaurantName;
     private String restaurantAddress;
     private String restaurantContact;
-    private Menu restaurantMenu;
-    
+    private  Menu restaurantMenu;
 }

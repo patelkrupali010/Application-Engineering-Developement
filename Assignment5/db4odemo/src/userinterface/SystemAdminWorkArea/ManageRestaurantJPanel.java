@@ -195,7 +195,7 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblRestaurant);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 940, 90));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 650, 90));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed

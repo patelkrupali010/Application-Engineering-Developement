@@ -35,7 +35,6 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
-//        this.setSize(1680, 1050);
         loginJPanel.setVisible(true);
         jPanelRedirect.setVisible(false);
         logoutJPanel.setVisible(false);
@@ -268,7 +267,7 @@ public class MainJFrame extends javax.swing.JFrame {
         logoutJPanel.setVisible(true);
         txtUsername.setText("");
         jPwd.setText("");
-            
+          try{  
         if (userAccount != null) {
             if (userAccount instanceof Customer){
                     jPanelRedirect.add("workArea", userAccount.getRole().createWorkArea(jPanelRedirect, (Customer)userAccount, system));
@@ -284,7 +283,10 @@ public class MainJFrame extends javax.swing.JFrame {
             CardLayout layout = (CardLayout) jPanelRedirect.getLayout();
             layout.next(jPanelRedirect);
         }
-        
+          }
+          catch(Exception e){
+              JOptionPane.showMessageDialog(this, e);
+          }
         }        
         
         

@@ -179,7 +179,7 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblDelivery);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1000, 90));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 560, 90));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
