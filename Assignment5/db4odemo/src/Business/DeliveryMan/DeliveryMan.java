@@ -45,7 +45,6 @@ public class DeliveryMan extends  UserAccount{
         setUsername(userName);
         setPassword(password); 
         setRole(new DeliverManRole());
-        
         this.name = name;
         this.phone = phone;
         

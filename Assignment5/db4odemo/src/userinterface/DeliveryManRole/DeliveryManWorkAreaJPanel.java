@@ -7,8 +7,11 @@ package userinterface.DeliveryManRole;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.OrderWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,26 +22,24 @@ import javax.swing.table.DefaultTableModel;
 public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-    private EcoSystem business;
+    private EcoSystem ecoSystem;
     private UserAccount userAccount;
+    private List<WorkRequest> workRequestList;
+
     
     
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
+    public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
-        this.business = business;
+        this.ecoSystem = ecosystem;
       
         
-        populateTable();
-    }
-    
-    public void populateTable(){
-        
+        insertIntoTable();
     }
 
     /**
@@ -51,29 +52,42 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        workRequestJTable = new javax.swing.JTable();
-        assignJButton = new javax.swing.JButton();
-        processJButton = new javax.swing.JButton();
-        refreshJButton = new javax.swing.JButton();
+        tblOrder = new javax.swing.JTable();
+        btnAssign = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtStatus = new javax.swing.JTextField();
+        txtRestName = new javax.swing.JTextField();
+        txtRestAddress = new javax.swing.JTextField();
+        txtCustName = new javax.swing.JTextField();
+        txtCustAdd = new javax.swing.JTextField();
+        lblLogout = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrder.setBackground(new java.awt.Color(153, 0, 0));
+        tblOrder.setForeground(new java.awt.Color(255, 255, 255));
+        tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Message", "Sender", "Receiver", "Status"
+                "tmp", "Sender", "Receiver", "Status", "Order requested on"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -84,71 +98,168 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(workRequestJTable);
-        if (workRequestJTable.getColumnModel().getColumnCount() > 0) {
-            workRequestJTable.getColumnModel().getColumn(0).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(1).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(2).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane1.setViewportView(tblOrder);
+        if (tblOrder.getColumnModel().getColumnCount() > 0) {
+            tblOrder.getColumnModel().getColumn(0).setResizable(false);
+            tblOrder.getColumnModel().getColumn(1).setResizable(false);
+            tblOrder.getColumnModel().getColumn(2).setResizable(false);
+            tblOrder.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 58, 375, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 720, 90));
 
-        assignJButton.setText("Assign to me");
-        assignJButton.addActionListener(new java.awt.event.ActionListener() {
+        btnAssign.setText("Assign to me");
+        btnAssign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assignJButtonActionPerformed(evt);
+                btnAssignActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 215, -1, -1));
+        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 160, -1, -1));
 
-        processJButton.setText("Process");
-        processJButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Restaurant Name");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 120, 30));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Restaurant Address");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 130, 30));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Customer Name");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 120, 30));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Customer Address");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 120, 30));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Status");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 80, 30));
+
+        txtStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                processJButtonActionPerformed(evt);
+                txtStatusActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 215, -1, -1));
+        add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, 180, 30));
 
-        refreshJButton.setText("Refresh");
-        refreshJButton.addActionListener(new java.awt.event.ActionListener() {
+        txtRestName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshJButtonActionPerformed(evt);
+                txtRestNameActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
+        add(txtRestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 180, 30));
+
+        txtRestAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRestAddressActionPerformed(evt);
+            }
+        });
+        add(txtRestAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, 180, 30));
+
+        txtCustName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCustNameActionPerformed(evt);
+            }
+        });
+        add(txtCustName, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, 180, 30));
+
+        txtCustAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCustAddActionPerformed(evt);
+            }
+        });
+        add(txtCustAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 180, 30));
+
+        lblLogout.setIcon(new javax.swing.ImageIcon("C:\\Users\\krupa\\OneDrive\\Documents\\NetBeansProjects\\patel_krupali_001096158-main\\Assignment5\\db4odemo\\logout.png")); // NOI18N
+        add(lblLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
-
-        int selectedRow = workRequestJTable.getSelectedRow();
-        
-        if (selectedRow < 0){
-            return;
+    private void btnAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignActionPerformed
+       
+        int selectedRow = tblOrder.getSelectedRow();
+        if (selectedRow >= 0) {
+            WorkRequest request = (WorkRequest) tblOrder.getValueAt(selectedRow, 0);
+            if (request instanceof OrderWorkRequest) {
+                        OrderWorkRequest workRequest = (OrderWorkRequest) tblOrder.getValueAt(selectedRow, 0);
+                    if (workRequest.getStatus().equals("Order Placed!")) {
+                        workRequest.setStatus("Out for delivery");
+                        JOptionPane.showMessageDialog(null, "Thanks for picking up the order!");
+                    } else if (workRequest.getStatus().equals("Out for delivery")) {
+                        workRequest.setStatus("Delivered");
+                        JOptionPane.showMessageDialog(null, "Thanks for Delivering the order!");
+                    } else {
+                        btnAssign.setVisible(false);
+                    }
+                    
+            txtRestName.setText(request.getRestaurant().getRestaurantName());
+            txtRestAddress.setText(request.getRestaurant().getRestaurantAddress());
+            txtCustName.setText(request.getCustomer().getName());
+            txtCustAdd.setText(request.getCustomer().getAddress());
+            txtStatus.setText(request.getStatus());
+            
+     
+            }
         }
-        
-//        WorkRequest request = (WorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
-//        request.setReceiver(userAccount);
-//        request.setStatus("Pending");
-        populateTable();
-        
-    }//GEN-LAST:event_assignJButtonActionPerformed
+    }//GEN-LAST:event_btnAssignActionPerformed
 
-    private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
-        
+    private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStatusActionPerformed
 
-        
-    }//GEN-LAST:event_processJButtonActionPerformed
+    private void txtRestNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRestNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRestNameActionPerformed
 
-    private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
-        populateTable();
-    }//GEN-LAST:event_refreshJButtonActionPerformed
+    private void txtRestAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRestAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRestAddressActionPerformed
+
+    private void txtCustNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCustNameActionPerformed
+
+    private void txtCustAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCustAddActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton assignJButton;
+    private javax.swing.JButton btnAssign;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton processJButton;
-    private javax.swing.JButton refreshJButton;
-    private javax.swing.JTable workRequestJTable;
+    private javax.swing.JLabel lblLogout;
+    private javax.swing.JTable tblOrder;
+    private javax.swing.JTextField txtCustAdd;
+    private javax.swing.JTextField txtCustName;
+    private javax.swing.JTextField txtRestAddress;
+    private javax.swing.JTextField txtRestName;
+    private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
+
+    private void insertIntoTable() {
+        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        model.setRowCount(0);
+        workRequestList = ecoSystem.getWorkQueue().getWorkRequestListDeliveryMan(userAccount);
+        for (WorkRequest request : workRequestList) {
+            Object[] row = new Object[tblOrder.getColumnCount()];
+            row[0] = request;
+            tblOrder.getColumnModel().getColumn(0).setMinWidth(0);
+            tblOrder.getColumnModel().getColumn(0).setMaxWidth(0);
+            
+            row[1] = request.getRestaurant();
+            row[2] = request.getCustomer();
+            row[3] = request.getStatus();
+            row[4] = request.getRequestDate();
+            model.addRow(row);
+        }
+    }
 }

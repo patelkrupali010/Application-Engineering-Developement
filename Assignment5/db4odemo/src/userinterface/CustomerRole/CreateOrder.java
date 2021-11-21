@@ -152,6 +152,11 @@ public class CreateOrder extends javax.swing.JPanel {
                 jComboRestListItemStateChanged(evt);
             }
         });
+        jComboRestList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboRestListActionPerformed(evt);
+            }
+        });
 
         lblSelectRest.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblSelectRest.setForeground(new java.awt.Color(255, 255, 255));
@@ -382,6 +387,10 @@ public class CreateOrder extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, e);            
         }
     }//GEN-LAST:event_btnUpdateMouseClicked
+
+    private void jComboRestListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboRestListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboRestListActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

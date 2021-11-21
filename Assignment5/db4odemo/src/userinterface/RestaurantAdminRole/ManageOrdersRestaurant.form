@@ -26,7 +26,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel2" pref="1027" max="32767" attributes="0"/>
+              <Component id="lblHeading" pref="1027" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -37,51 +37,32 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-                      <Component id="cartScrollPane1" min="-2" pref="642" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="assignDeliveryPersonLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="deliveryManLabel" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="assignDeliveryPerson" min="-2" pref="137" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="addDeliveryPerson" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="deliveryManNameValue" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                              </Group>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="lblTotal" min="-2" pref="89" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtTotal" min="-2" pref="124" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel9" min="-2" pref="50" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                              <Component id="totalPrice" min="-2" pref="127" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="acceptOrder" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="declineOrder" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel14" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
-                                      <Component id="jLabel6" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
-                                      <Component id="jLabel4" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="lblOrderDate" linkSize="1" max="32767" attributes="0"/>
+                                      <Component id="lblRestName" linkSize="1" max="32767" attributes="0"/>
+                                      <Component id="lblDeliveryPerson" linkSize="1" alignment="1" pref="130" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="restaurantName" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="requestDate" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="status" alignment="1" min="-2" pref="213" max="-2" attributes="0"/>
+                                      <Component id="comboBoxDelPerson" max="32767" attributes="0"/>
+                                      <Component id="txtRestName" max="32767" attributes="0"/>
+                                      <Component id="txtOrderDate" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtOrderStatus" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                  <Component id="btnAssignDelMan" min="-2" pref="72" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="lblOrderStatus" linkSize="1" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="cartScrollPane1" min="-2" pref="642" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -93,48 +74,38 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" pref="50" max="-2" attributes="0"/>
+              <Component id="lblHeading" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="112" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Component id="cartScrollPane1" min="-2" pref="89" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="assignDeliveryPerson" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="assignDeliveryPersonLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="addDeliveryPerson" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTotal" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="txtTotal" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="deliveryManLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="deliveryManNameValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblDeliveryPerson" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboBoxDelPerson" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="btnAssignDelMan" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="restaurantName" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblRestName" linkSize="2" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="txtRestName" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="requestDate" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblOrderDate" linkSize="2" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="txtOrderDate" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="status" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="totalPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOrderStatus" linkSize="2" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="txtOrderStatus" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="acceptOrder" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="declineOrder" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="190" max="32767" attributes="0"/>
+              <EmptySpace pref="235" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -152,7 +123,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tblOrderDetails">
+        <Component class="javax.swing.JTable" name="tblOrderInfo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="99" type="rgb"/>
@@ -161,7 +132,8 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="3" rowCount="0">
+              <Table columnCount="4" rowCount="0">
+                <Column editable="false" title="tmp" type="java.lang.Object"/>
                 <Column editable="false" title="Customer Name" type="java.lang.String"/>
                 <Column editable="false" title="Status" type="java.lang.String"/>
                 <Column editable="false" title="Request Date" type="java.lang.String"/>
@@ -171,10 +143,13 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblOrderInfoMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="lblHeading">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="99" type="rgb"/>
@@ -201,10 +176,16 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tblOrderDetails1">
+        <Component class="javax.swing.JTable" name="tblOrderCartItems">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="99" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="3" rowCount="0">
@@ -217,44 +198,29 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="addDeliveryPerson">
+    <Component class="javax.swing.JButton" name="btnAssignDelMan">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Add"/>
+        <Property name="text" type="java.lang.String" value="Assign"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addDeliveryPersonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAssignDelManActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="assignDeliveryPersonLabel">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Assign Delivery Person"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="assignDeliveryPerson">
+    <Component class="javax.swing.JComboBox" name="comboBoxDelPerson">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="assignDeliveryPersonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxDelPersonActionPerformed"/>
       </Events>
       <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox()"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="deliveryManNameValue">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="adarsh"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="deliveryManLabel">
+    <Component class="javax.swing.JLabel" name="lblDeliveryPerson">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
@@ -262,47 +228,23 @@
         <Property name="text" type="java.lang.String" value="Delivery Man Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="requestDate">
+    <Component class="javax.swing.JLabel" name="lblOrderDate">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&lt;value&gt;"/>
+        <Property name="text" type="java.lang.String" value="Order Date"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="restaurantName">
+    <Component class="javax.swing.JLabel" name="lblOrderStatus">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="arun"/>
+        <Property name="text" type="java.lang.String" value="Order Status"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="status">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="&lt;value&gt;"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Request Date"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel14">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Status"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="lblRestName">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
@@ -310,7 +252,7 @@
         <Property name="text" type="java.lang.String" value="Restaurant Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
+    <Component class="javax.swing.JLabel" name="lblTotal">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
@@ -318,29 +260,16 @@
         <Property name="text" type="java.lang.String" value="Total"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="totalPrice">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="&lt;value&gt;"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="txtRestName">
     </Component>
-    <Component class="javax.swing.JButton" name="acceptOrder">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Accept Order"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="txtOrderDate">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtOrderStatus">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="acceptOrderActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtOrderStatusActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="declineOrder">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Decline Order"/>
-      </Properties>
-      <Events>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="declineOrderMousePressed"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="txtTotal">
     </Component>
   </SubComponents>
 </Form>
