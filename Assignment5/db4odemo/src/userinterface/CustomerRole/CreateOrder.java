@@ -110,7 +110,7 @@ public class CreateOrder extends javax.swing.JPanel {
         lblMenuList.setText("Choose from Menu");
 
         tblOrder.setBackground(new java.awt.Color(153, 0, 0));
-        tblOrder.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tblOrder.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         tblOrder.setForeground(new java.awt.Color(255, 255, 255));
         tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -163,7 +163,7 @@ public class CreateOrder extends javax.swing.JPanel {
         lblSelectRest.setText("Select Restaurant");
 
         tblCart.setBackground(new java.awt.Color(153, 0, 0));
-        tblCart.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tblCart.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         tblCart.setForeground(new java.awt.Color(255, 255, 255));
         tblCart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -205,11 +205,11 @@ public class CreateOrder extends javax.swing.JPanel {
         lblCreateOrder.setText("CREATE ORDER");
 
         lblQty.setBackground(new java.awt.Color(153, 0, 0));
-        lblQty.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        lblQty.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblQty.setForeground(new java.awt.Color(255, 255, 255));
         lblQty.setText("Quantity");
 
-        txtQty.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtQty.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         btnOrder.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnOrder.setText("Request Order");

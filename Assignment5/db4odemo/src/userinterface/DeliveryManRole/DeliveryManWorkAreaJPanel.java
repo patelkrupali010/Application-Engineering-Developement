@@ -71,6 +71,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblOrder.setBackground(new java.awt.Color(153, 0, 0));
+        tblOrder.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tblOrder.setForeground(new java.awt.Color(255, 255, 255));
         tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -108,73 +109,83 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 720, 90));
 
-        btnAssign.setText("Assign to me");
+        btnAssign.setText("Deliver");
         btnAssign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignActionPerformed(evt);
             }
         });
-        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 160, -1, -1));
+        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, 100, 30));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Restaurant Name");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 120, 30));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 180, 30));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Restaurant Address");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 130, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 190, 30));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Customer Name");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 120, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 180, 30));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Customer Address");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 120, 30));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 180, 30));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Status");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 80, 30));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 140, 30));
 
+        txtStatus.setEditable(false);
+        txtStatus.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         txtStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtStatusActionPerformed(evt);
             }
         });
-        add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, 180, 30));
+        add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 180, 30));
 
+        txtRestName.setEditable(false);
+        txtRestName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         txtRestName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRestNameActionPerformed(evt);
             }
         });
-        add(txtRestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 180, 30));
+        add(txtRestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 180, 30));
 
+        txtRestAddress.setEditable(false);
+        txtRestAddress.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         txtRestAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRestAddressActionPerformed(evt);
             }
         });
-        add(txtRestAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, 180, 30));
+        add(txtRestAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 180, 30));
 
+        txtCustName.setEditable(false);
+        txtCustName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         txtCustName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCustNameActionPerformed(evt);
             }
         });
-        add(txtCustName, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, 180, 30));
+        add(txtCustName, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, 180, 30));
 
+        txtCustAdd.setEditable(false);
+        txtCustAdd.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         txtCustAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCustAddActionPerformed(evt);
             }
         });
-        add(txtCustAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 180, 30));
+        add(txtCustAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, 180, 30));
 
         lblLogout.setIcon(new javax.swing.ImageIcon("C:\\Users\\krupa\\OneDrive\\Documents\\NetBeansProjects\\patel_krupali_001096158-main\\Assignment5\\db4odemo\\logout.png")); // NOI18N
         add(lblLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
@@ -187,10 +198,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             WorkRequest request = (WorkRequest) tblOrder.getValueAt(selectedRow, 0);
             if (request instanceof OrderWorkRequest) {
                         OrderWorkRequest workRequest = (OrderWorkRequest) tblOrder.getValueAt(selectedRow, 0);
-                    if (workRequest.getStatus().equals("Order Placed!")) {
-                        workRequest.setStatus("Out for delivery");
-                        JOptionPane.showMessageDialog(null, "Thanks for picking up the order!");
-                    } else if (workRequest.getStatus().equals("Out for delivery")) {
+                    if (workRequest.getStatus().equals("Accepted")) {
                         workRequest.setStatus("Delivered");
                         JOptionPane.showMessageDialog(null, "Thanks for Delivering the order!");
                     } else {

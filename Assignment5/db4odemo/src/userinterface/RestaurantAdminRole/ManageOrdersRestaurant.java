@@ -51,7 +51,16 @@ public class ManageOrdersRestaurant extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.account = account;
         deliveryManDirectory = ecosystem.getDeliveryManDirectory();
-        this.workRequest = workRequest;
+        this.workRequest = workRequest;  
+
+        btnReject.setVisible(false);
+        btnAccept.setVisible(false);
+        txtDeliveryManName.setVisible(false);
+
+        insertIntoTable();
+        
+        
+
         if (deliveryManDirectory.getDeliveryManList().size() > 0) {
             index = 0;
             for (DeliveryMan deliveryMan : deliveryManDirectory.getDeliveryManList()) {
@@ -59,7 +68,6 @@ public class ManageOrdersRestaurant extends javax.swing.JPanel {
             } 
         }        
 
-        insertIntoTable();
     }
 
     /**
@@ -76,7 +84,6 @@ public class ManageOrdersRestaurant extends javax.swing.JPanel {
         lblHeading = new javax.swing.JLabel();
         cartScrollPane1 = new javax.swing.JScrollPane();
         tblOrderCartItems = new javax.swing.JTable();
-        btnAssignDelMan = new javax.swing.JButton();
         comboBoxDelPerson = new javax.swing.JComboBox();
         lblDeliveryPerson = new javax.swing.JLabel();
         lblOrderDate = new javax.swing.JLabel();
@@ -87,6 +94,9 @@ public class ManageOrdersRestaurant extends javax.swing.JPanel {
         txtOrderDate = new javax.swing.JTextField();
         txtOrderStatus = new javax.swing.JTextField();
         txtTotal = new javax.swing.JTextField();
+        btnReject = new javax.swing.JButton();
+        btnAccept = new javax.swing.JButton();
+        txtDeliveryManName = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(153, 0, 0));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -94,6 +104,7 @@ public class ManageOrdersRestaurant extends javax.swing.JPanel {
         jScrollPane2.setForeground(java.awt.Color.white);
 
         tblOrderInfo.setBackground(new java.awt.Color(153, 0, 0));
+        tblOrderInfo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         tblOrderInfo.setForeground(new java.awt.Color(255, 255, 255));
         tblOrderInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -134,7 +145,7 @@ public class ManageOrdersRestaurant extends javax.swing.JPanel {
         cartScrollPane1.setForeground(java.awt.Color.white);
 
         tblOrderCartItems.setBackground(new java.awt.Color(153, 0, 0));
-        tblOrderCartItems.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tblOrderCartItems.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         tblOrderCartItems.setForeground(new java.awt.Color(255, 255, 255));
         tblOrderCartItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,39 +172,68 @@ public class ManageOrdersRestaurant extends javax.swing.JPanel {
         });
         cartScrollPane1.setViewportView(tblOrderCartItems);
 
-        btnAssignDelMan.setText("Assign");
-        btnAssignDelMan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignDelManActionPerformed(evt);
-            }
-        });
-
+        comboBoxDelPerson.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         comboBoxDelPerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxDelPersonActionPerformed(evt);
             }
         });
 
+        lblDeliveryPerson.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblDeliveryPerson.setForeground(java.awt.Color.white);
         lblDeliveryPerson.setText("Delivery Man Name");
 
+        lblOrderDate.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblOrderDate.setForeground(java.awt.Color.white);
         lblOrderDate.setText("Order Date");
 
+        lblOrderStatus.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblOrderStatus.setForeground(java.awt.Color.white);
         lblOrderStatus.setText("Order Status");
 
+        lblRestName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblRestName.setForeground(java.awt.Color.white);
         lblRestName.setText("Restaurant Name");
 
+        lblTotal.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblTotal.setForeground(java.awt.Color.white);
         lblTotal.setText("Total");
 
+        txtRestName.setEditable(false);
+        txtRestName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtOrderDate.setEditable(false);
+        txtOrderDate.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtOrderStatus.setEditable(false);
+        txtOrderStatus.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         txtOrderStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtOrderStatusActionPerformed(evt);
             }
         });
+
+        txtTotal.setEditable(false);
+        txtTotal.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        btnReject.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnReject.setText("Reject");
+        btnReject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectActionPerformed(evt);
+            }
+        });
+
+        btnAccept.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnAccept.setText("Accept");
+        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptActionPerformed(evt);
+            }
+        });
+
+        txtDeliveryManName.setEditable(false);
+        txtDeliveryManName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -215,26 +255,36 @@ public class ManageOrdersRestaurant extends javax.swing.JPanel {
                                 .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(lblOrderDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblRestName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblDeliveryPerson, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
-                                    .addGap(59, 59, 59)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(comboBoxDelPerson, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtRestName)
-                                        .addComponent(txtOrderDate, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(49, 49, 49)
-                                    .addComponent(btnAssignDelMan, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(lblOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cartScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblOrderDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblRestName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblDeliveryPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(59, 59, 59)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtRestName)
+                                            .addComponent(txtOrderDate, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtOrderStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(txtDeliveryManName)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(comboBoxDelPerson, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(lblOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(121, 121, 121))
+                            .addComponent(cartScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(406, 406, 406)
+                        .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblDeliveryPerson, lblOrderDate, lblOrderStatus, lblRestName});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAccept, btnReject});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,10 +300,13 @@ public class ManageOrdersRestaurant extends javax.swing.JPanel {
                     .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblDeliveryPerson)
-                    .addComponent(comboBoxDelPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAssignDelMan))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboBoxDelPerson)
+                            .addComponent(txtDeliveryManName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRestName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,29 +319,18 @@ public class ManageOrdersRestaurant extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnReject)
+                    .addComponent(btnAccept))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblDeliveryPerson, lblOrderDate, lblOrderStatus, lblRestName});
 
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAccept, btnReject});
+
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAssignDelManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignDelManActionPerformed
-        // TODO add your handling code here:
-        if(index >= 0){
-            index = comboBoxDelPerson.getSelectedIndex();
-            DeliveryMan deliveryMan = deliveryManDirectory.getDeliveryManList().get(index);
-            workRequestList = ecosystem.getWorkQueue().getWorkRequestListRestaurant(account);
-            for (WorkRequest workRequest : workRequestList) {
-                workRequest.setDeliverMan(deliveryMan);
-            }
-            JOptionPane.showMessageDialog(null, "Delivery man has been assigned successfully!");
-            insertIntoTable();
-            
-            JOptionPane.showMessageDialog(this, "Order placed successfully!"); 
-
-        }
-    }//GEN-LAST:event_btnAssignDelManActionPerformed
 
     private void comboBoxDelPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDelPersonActionPerformed
 
@@ -302,16 +344,53 @@ public class ManageOrdersRestaurant extends javax.swing.JPanel {
         // TODO add your handling code here:
         
                 try{
+
                 int selectedRow = tblOrderInfo.getSelectedRow();
                 DefaultTableModel model = (DefaultTableModel) tblOrderCartItems.getModel();
 
                 if (selectedRow >= 0) {
                     WorkRequest request = (WorkRequest) tblOrderInfo.getValueAt(selectedRow, 0);
+                if(request.getStatus().equals("Order Placed!")){
+                    comboBoxDelPerson.setVisible(true);
+                    txtDeliveryManName.setVisible(false);
+                    btnAccept.setVisible(true);
+                    btnReject.setVisible(true);
+                }
+                if(request.getStatus().equals("Declined")){
+                   comboBoxDelPerson.setVisible(false);
+                   txtDeliveryManName.setVisible(true);
+                    btnAccept.setVisible(false);
+                    btnReject.setVisible(false);
+               }
+                if(request.getStatus().equals("Accepted")){
+                    comboBoxDelPerson.setVisible(false);
+                    txtDeliveryManName.setVisible(true);
+                    btnAccept.setVisible(false);
+                    btnReject.setVisible(false);
+                }
+                if(request.getStatus()=="Delivered"){
+                    btnAccept.setVisible(false);
+                    btnReject.setVisible(false); 
+                    comboBoxDelPerson.setVisible(false);
+                    txtDeliveryManName.setVisible(true);
+                    btnAccept.setVisible(false);
+                    btnReject.setVisible(false);
+                }
+                    
+                    
                     if (request instanceof OrderWorkRequest) {
                         OrderWorkRequest orderWorkRequest = (OrderWorkRequest) tblOrderInfo.getValueAt(selectedRow, 0);
                         if (orderWorkRequest != null) {
         txtRestName.setText(orderWorkRequest.getRestaurant().getRestaurantName());
-
+        
+        if(!orderWorkRequest.getStatus().equals("Order Placed!")){
+            txtDeliveryManName.setText(orderWorkRequest.getDeliverMan().getName());
+        }
+        else{
+            txtDeliveryManName.setVisible(false);
+            comboBoxDelPerson.setVisible(true);
+        }
+        
         
         txtOrderDate.setText(orderWorkRequest.getRequestDate().toString());
         txtOrderStatus.setText(orderWorkRequest.getStatus());
@@ -340,9 +419,71 @@ public class ManageOrdersRestaurant extends javax.swing.JPanel {
                 }
     }//GEN-LAST:event_tblOrderInfoMouseClicked
 
+    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+        WorkRequest workRequest=(WorkRequest) tblOrderInfo.getModel().getValueAt(tblOrderInfo.getSelectedRow(), 0);
+        workRequest.setDeliverMan(null);
+        workRequest.setStatus("Declined");
+        JOptionPane.showMessageDialog(null,"Your order has been declined");
+        insertIntoTable();
+        lblDeliveryPerson.setVisible(false);
+        lblRestName.setVisible(false);
+        lblOrderDate.setVisible(false);
+        lblOrderStatus.setVisible(false);
+        btnAccept.setVisible(false);
+        btnReject.setVisible(false);
+        btnAccept.setVisible(false);
+        comboBoxDelPerson.setVisible(false);
+        txtOrderDate.setVisible(false);
+        txtOrderStatus.setVisible(false);
+        txtRestName.setVisible(false);
+        txtDeliveryManName.setVisible(false);
+        
+        btnAccept.setVisible(false);
+        btnReject.setVisible(false);
+
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(this, e);
+        }
+                
+        
+        
+    }//GEN-LAST:event_btnRejectActionPerformed
+
+    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
+        // TODO add your handling code here:
+
+      try{
+        
+        int index= comboBoxDelPerson.getSelectedIndex();
+        DeliveryMan deliveryMan = ecosystem.getDeliveryManDirectory().getDeliveryManList().get(index);
+        WorkRequest workRequest=(WorkRequest) tblOrderInfo.getModel().getValueAt(tblOrderInfo.getSelectedRow(), 0);
+
+        workRequest.setDeliverMan(deliveryMan);
+        workRequest.setStatus("Accepted");
+        JOptionPane.showMessageDialog(null,"Your order has been accepted");
+        insertIntoTable();
+            txtDeliveryManName.setText(comboBoxDelPerson.getSelectedItem().toString());
+        txtDeliveryManName.setVisible(true);
+        comboBoxDelPerson.setVisible(false);
+        
+        
+        btnAccept.setVisible(false);
+        btnReject.setVisible(false);
+      }
+      catch(Exception e){
+            JOptionPane.showMessageDialog(this, e);
+      }
+      
+    }//GEN-LAST:event_btnAcceptActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAssignDelMan;
+    private javax.swing.JButton btnAccept;
+    private javax.swing.JButton btnReject;
     private javax.swing.JScrollPane cartScrollPane1;
     private javax.swing.JComboBox<String> comboBoxDelPerson;
     private javax.swing.JScrollPane jScrollPane2;
@@ -354,6 +495,7 @@ public class ManageOrdersRestaurant extends javax.swing.JPanel {
     private javax.swing.JLabel lblTotal;
     private javax.swing.JTable tblOrderCartItems;
     private javax.swing.JTable tblOrderInfo;
+    private javax.swing.JTextField txtDeliveryManName;
     private javax.swing.JTextField txtOrderDate;
     private javax.swing.JTextField txtOrderStatus;
     private javax.swing.JTextField txtRestName;

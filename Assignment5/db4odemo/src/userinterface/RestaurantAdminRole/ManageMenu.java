@@ -67,6 +67,7 @@ public class ManageMenu extends javax.swing.JPanel {
         jLabel1.setText("MANAGE MENU");
 
         tblMenu.setBackground(new java.awt.Color(153, 0, 0));
+        tblMenu.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         tblMenu.setForeground(new java.awt.Color(255, 255, 255));
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -91,7 +92,7 @@ public class ManageMenu extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblMenu.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tblMenu.setSelectionBackground(new java.awt.Color(204, 0, 51));
         tblMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblMenuMouseClicked(evt);
@@ -100,15 +101,18 @@ public class ManageMenu extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblMenu);
 
         lblName.setBackground(new java.awt.Color(153, 0, 0));
-        lblName.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        lblName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("Name");
 
+        txtName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
         lblPrice.setBackground(new java.awt.Color(153, 0, 0));
-        lblPrice.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        lblPrice.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblPrice.setForeground(new java.awt.Color(255, 255, 255));
         lblPrice.setText("Price");
 
+        txtPrice.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         txtPrice.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtPriceKeyPressed(evt);
